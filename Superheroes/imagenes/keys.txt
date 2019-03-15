@@ -1,0 +1,5 @@
+// PUBLIC KEY: 49ebc28ad0354cc1d400f4770c79a818
+// PRIVATE KEY: 7dd8281457449823d5245acc79c0b69c19a873f4
+// developer.marvel.com
+// /v1/public/characters
+
