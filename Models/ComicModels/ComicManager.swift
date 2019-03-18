@@ -14,44 +14,41 @@ class ComicManager {
     
     static let harcodedRequest = "https://gateway.marvel.com:443/v1/public/comics"+MarvelAPIHandler.PUBLIC_PRIVATE_KEY
 
-    static func getAllComicsFromAPI (completion: @escaping ([Comic]) -> Void) {
+    static func getComicsFromAPI (heroID: Int = 0, completion: @escaping ([Comic]) -> Void) {
         
-        guard let urlToExecute = URL (string: self.harcodedRequest ) else {
-            return
+        let urlToExecute : URL?
+        
+        if heroID == 0 {
+           
+            urlToExecute = URL (string: self.harcodedRequest )
+            
+        } else {
+            
+            let buildURL = "https://gateway.marvel.com:443/v1/public/comics" + "/\(heroID)"+MarvelAPIHandler.PUBLIC_PRIVATE_KEY
+            urlToExecute = URL (string: buildURL )
+            
         }
+        
         
         print("LA URL es: \(urlToExecute)")
         
-        //MarvelAPIManager.fetchFromAPI(URL(string: harcodedRequest))
+        // MARK: - TOIMP: usar solo 1 metodo que devuelva la lista de comics
         
-        //let arrayComic = ComicJSONParser.parseComics(comicResponse: MarvelAPIManager.)
-        completion(arrayComic)
-        
-        
-    }
-    
-    static func getComicsFromHero (heroID: Int, completion: @escaping ([Comic]) -> Void) {
-        
-        guard let urlToExecute = URL (string: self.harcodedRequest ) else {
-            return
-        }
-        
-        print("LA URL es: \(urlToExecute)")
-        
-        NetworkingClient.execute(urlToExecute) { (json, error) in
-            if let error = error  {
-                print(error.localizedDescription)
-            } else if let json = json {
-                
-                // MARK: TODO: get comics from hero id
-                
-                
-                
-               
+        MarvelAPIManager.fetchFromAPI(urlToExecute, entityToDecode: "ComicsResponse") {
+            
+            // MARK: ESTE CODIGO NO LO EJECUTA !!!
+            
+            let couldGetComicsList = MarvelAPIManager.fetch(entityToDecode: "ComicsResponse") { (setComics) in
+                completion(MarvelAPIManager.convertSetToArray(set: setComics) as! [Comic])
+            }
+            
+            if couldGetComicsList {
+                print("Pudo obtener la lista de comics")
             }
         }
+        
+        
+  
     }
-    
-    
-    
+ 
 }

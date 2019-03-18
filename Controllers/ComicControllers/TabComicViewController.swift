@@ -21,9 +21,11 @@ class TabComicDetailViewController: UIViewController {
         super.viewDidLoad()
         
         
-        if let imageFromURL = comic?.image {
+        // MARK: TOFIX: image get
+        
+       /* if let imageFromURL = comic?.image {
             detailComicImageView.sd_setImage(with:  URL(string: imageFromURL.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
-        }
+        }*/
         
         titleComicTextField.text = comic?.title
         descriptionComicTextField.text = comic?.description

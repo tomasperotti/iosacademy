@@ -16,9 +16,6 @@ class ComicCollectionViewController: UIViewController {
     var comicList : [Comic] = []
     var comic : Comic?
     
-    
-    var array = ["apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -31,7 +28,10 @@ class ComicCollectionViewController: UIViewController {
         layout.minimumLineSpacing = 2
         self.comicCollectionView.collectionViewLayout = layout
         
+        // MARK: TOFIX: get comic list
+        
         ComicManager.getComicsFromAPI(completion: { (comicList) in
+           print("Entro a comic collection")
             self.comicList = comicList
             self.comicCollectionView.reloadData()
             
@@ -70,9 +70,12 @@ extension ComicCollectionViewController : UICollectionViewDataSource, UICollecti
         
         let newComic = comicList[indexPath.row]
         
+        // MARK: TOFIX: Image get
+        
+        /*
         if let comicImageURL = newComic.image {
                 cell.comicImageView.sd_setImage(with:  URL(string: comicImageURL.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
-        }
+        }*/
           
             cell.layer.borderWidth = 0.5
             cell.layer.borderColor = UIColor.gray.cgColor

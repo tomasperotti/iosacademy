@@ -17,7 +17,7 @@ class ComicsResponse: NSManagedObject, Decodable, CodableHasContextChecker {
     
     required convenience init(from decoder: Decoder) throws {
         
-        guard let ent = CharactersResponse.hasValidContext(decoder: decoder, entityName: "ComicResponse") else {
+        guard let ent = CharactersResponse.hasValidContext(decoder: decoder, entityName: "ComicsResponse") else {
             fatalError("Failed to decode Subject!")
         }
         
@@ -40,7 +40,7 @@ class ComicsData: NSManagedObject, Decodable {
     
     required convenience init(from decoder: Decoder) throws {
         
-        guard let ent = CharactersResponse.hasValidContext(decoder: decoder, entityName: "ComicData") else {
+        guard let ent = CharactersResponse.hasValidContext(decoder: decoder, entityName: "ComicsData") else {
             fatalError("Failed to decode Subject!")
         }
         
@@ -57,7 +57,7 @@ class Comic: NSManagedObject, Decodable {
     
     @NSManaged var id : Int32
     @NSManaged var title : String
-    @NSManaged var comicDescription : String
+    //@NSManaged var comicDescription : String?
     @NSManaged var thumbnail : Thumbnail
     
     enum CodingKeys: String, CodingKey {
@@ -78,7 +78,7 @@ class Comic: NSManagedObject, Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int32.self, forKey: .id)
         self.title = try container.decode(String.self, forKey: .title)
-        self.comicDescription = try container.decode(String.self, forKey: .comicDescription)
+        //self.comicDescription = try container.decode(String.self, forKey: .comicDescription)
         self.thumbnail = try container.decode(Thumbnail.self, forKey: .thumbnail)
         
     }

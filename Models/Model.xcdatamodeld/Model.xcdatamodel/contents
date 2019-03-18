@@ -16,15 +16,14 @@
         <relationship name="data" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharactersData" syncable="YES"/>
     </entity>
     <entity name="Comic" representedClassName=".Comic" syncable="YES">
-        <attribute name="comicDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Thumbnail" syncable="YES"/>
     </entity>
-    <entity name="ComicsData" representedClassName=".ComicData" syncable="YES">
+    <entity name="ComicsData" representedClassName=".ComicsData" syncable="YES">
         <relationship name="results" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comic" syncable="YES"/>
     </entity>
-    <entity name="ComicsResponse" representedClassName=".ComicResponse" syncable="YES">
+    <entity name="ComicsResponse" representedClassName=".ComicsResponse" syncable="YES">
         <relationship name="data" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ComicsData" syncable="YES"/>
     </entity>
     <entity name="Thumbnail" representedClassName=".Thumbnail" syncable="YES">
@@ -39,10 +38,10 @@
         <element name="Character" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="CharactersData" positionX="-54" positionY="18" width="128" height="90"/>
         <element name="CharactersResponse" positionX="-36" positionY="27" width="128" height="60"/>
-        <element name="URLs" positionX="-18" positionY="36" width="128" height="75"/>
+        <element name="Comic" positionX="-18" positionY="63" width="128" height="90"/>
         <element name="Thumbnail" positionX="-45" positionY="27" width="128" height="75"/>
-        <element name="ComicsResponse" positionX="-36" positionY="36" width="128" height="60"/>
-        <element name="ComicsData" positionX="-27" positionY="45" width="128" height="60"/>
-        <element name="Comic" positionX="-18" positionY="63" width="128" height="105"/>
+        <element name="URLs" positionX="-18" positionY="36" width="128" height="75"/>
+        <element name="ComicsResponse" positionX="-9" positionY="99" width="128" height="60"/>
+        <element name="ComicsData" positionX="0" positionY="108" width="128" height="60"/>
     </elements>
 </model>

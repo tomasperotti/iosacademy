@@ -31,11 +31,13 @@ class ComicDetailViewController: UIViewController {
         
         titleComicLabel.text = heroComic?.title
         
-        if let image = heroComic?.image {
+        // MARK: TOFIX: get image
+        
+        /*if let image = heroComic?.image {
             
             comicImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
             
-        }
+        }*/
         
         descriptionLabel.text = heroComic?.description
 

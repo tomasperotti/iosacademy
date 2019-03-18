@@ -14,7 +14,9 @@ class MarvelAPIManager {
     
     static var urlSession : URLSession!
   
-    static func fetchFromAPI (_ urlToExecute: URL?, entityToDecode: String) {
+    /* You have to select your entity to decode: CharactersResponse or ComicsResponse
+     */
+    static func fetchFromAPI (_ urlToExecute: URL?, entityToDecode: String, completion: () -> ()) {
         
         /**
          Primero necesitamos acceder al contexto.
@@ -37,10 +39,13 @@ class MarvelAPIManager {
         
         let dataTask = self.urlSession.dataTask(with: urlRequest, completionHandler: {
             (data, response, error) in
+            
             guard let validData = data else {
+                print("Se fue, error obteniendo de API")
                 return
             }
             do {
+                print("Entro a fetch from API con \(entityToDecode)")
                 /** Parseamos la data */
                 let decoder = JSONDecoder()
                 /** Seteamos la referencia al context */
@@ -53,13 +58,15 @@ class MarvelAPIManager {
                  */
                 switch entityToDecode {
                     
-                    case "Characters" :
+                    case "CharactersResponse" :
                             let charResponse: CharactersResponse = try decoder.decode(CharactersResponse.self, from: validData)
                             print("TODO VINO OKA en characters! ::: \(charResponse.data.results.first)")
                     
-                    case "Comics" :
+                    
+                    case "ComicsResponse" :
                             let comicResponse: ComicsResponse = try decoder.decode(ComicsResponse.self, from: validData)
                             print("TODO VINO OK en comics! ::: \(comicResponse.data.results.first)")
+                    
                     
                     default :
                             print("Not valid entity to decode!! You can use: Characters or Comics")
@@ -74,8 +81,9 @@ class MarvelAPIManager {
                 
                 
             }
-            catch {
-                print("Error while fetching from API.")
+            catch let error {
+                print(error)
+                print("EXCEPTION: Error while fetching from API.")
             }
             
         })
@@ -107,6 +115,7 @@ class MarvelAPIManager {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
+        print("Entro a fetch local con \(entityToDecode)")
         
         switch entityToDecode {
            
@@ -158,7 +167,7 @@ class MarvelAPIManager {
      En este caso, hacemos un fetch para obtener todos los objetos CharactersResponse que tengamos almacenados
      en la base. Dependiendo del valor del booleano, va a borrar el primero o todos / SOLO BORRA CHARRESPONSE /
      */
-    func delete(context: NSManagedObjectContext, onlyFirstValue: Bool) {
+    static func delete(context: NSManagedObjectContext, onlyFirstValue: Bool) {
        
         
         do {

@@ -35,6 +35,7 @@ class SuperheroManager {
         
         // MARK: TOFIX: Harcoded request
         
+        /*
         if (MarvelAPIManager.fetch(entityToDecode: "CharacterResponse", completion: { (characterSet) in
             if let charSet = characterSet {
                 completion(MarvelAPIManager.convertSetToArray(set: charSet) as! [Character])
@@ -56,11 +57,27 @@ class SuperheroManager {
             if canFetchLocally {
                 print("Pudo obtener los heroes localmente")
             }
+         }
+          */
+        
+        let urlToRequest = URL(string: "https://gateway.marvel.com:443/v1/public/characters?apikey=49ebc28ad0354cc1d400f4770c79a818&hash=ff9bf04615bc16746d2526841da84a1e&ts=1")
+        
+        MarvelAPIManager.fetchFromAPI(urlToRequest, entityToDecode: "CharactersResponse") {
           
+            print("entro en completion")
+            let couldGetComicsList = MarvelAPIManager.fetch(entityToDecode: "CharactersResponse") { (setComics) in
+                let charactersArray = MarvelAPIManager.convertSetToArray(set: setComics) as! [Character]
+                
+                completion(charactersArray)
+            }
             
-            
+            if couldGetComicsList {
+                print("Pudo obtener la lista de heroes")
+            }
         }
-
+        
+        
+            
     }
     
 }
