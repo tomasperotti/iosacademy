@@ -29,11 +29,18 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
             heroIDLabel.text = String(heroID)
         }
         
+        // MARK: TOFIX - Image view
+        
         heroDescLabel.text = hero?.description
-        if let imageFromURL = hero?.imageName {
+        
+       /* if let imageFromURL = hero?.imageName {
             heroImageView.sd_setImage(with:  URL(string: imageFromURL.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
         }
+        */
+       
+        // MARK: TOFIX - comis
         
+        /*
         if let idHero = hero?.id {
             HeroJSONParser.parseComics(heroID: idHero) { (comicList) in
                 self.hero?.comic = comicList
@@ -41,6 +48,7 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
             }
             
         }
+         */
 
   
     }
@@ -82,9 +90,11 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
                 
                 if let s = sender as? CharacterCollectionViewCell {
                     
-                    if let index = heroCollectionView.indexPath(for: s)?.row {
+                   // MARK: TOFIX - no comic member
+                    
+                    /* if let index = heroCollectionView.indexPath(for: s)?.row {
                        dest.heroComic = hero?.comic?[index] ?? nil
-                    }
+                    }*/
              
                 }
             }
@@ -99,14 +109,18 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return hero?.comic?.count ?? 0
+        // MARK: TOFIX - No comics member
+        //hero?.comic?.count ??
+        return  0
+   
     }
     
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
         let cell = heroCollectionView.dequeueReusableCell(withReuseIdentifier: "heroCollectionCell", for: indexPath) as! CharacterCollectionViewCell
-        cell.heroCollectionLabel.text = hero?.comic?[indexPath.row].title
+        // MARK: TOFIX: no comic member
+        // cell.heroCollectionLabel.text = hero?.comic?[indexPath.row].title
     
         return cell
         

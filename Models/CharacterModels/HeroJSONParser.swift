@@ -22,9 +22,12 @@ class HeroJSONParser {
             
             let wikiFromHero = getWikiFromHero(arrayOfUrls: dic["urls"].arrayValue)
             
-            let hero = Character(id: dic["id"].intValue, name: dic["name"].stringValue, description: dic["description"] != "" ? dic["description"].stringValue : "No description available.", imageName: dic["thumbnail"]["path"].stringValue + "." + dic["thumbnail"]["extension"].stringValue , comic: nil, wikiURL: wikiFromHero)
-            heroArrayParsed.append(hero)
             
+            // MARK: TOFIX - Obtain differently
+            
+           /* let hero = Character(id: dic["id"].intValue, name: dic["name"].stringValue, description: dic["description"] != "" ? dic["description"].stringValue : "No description available.", imageName: dic["thumbnail"]["path"].stringValue + "." + dic["thumbnail"]["extension"].stringValue , comic: nil, wikiURL: wikiFromHero)
+            heroArrayParsed.append(hero)
+            */
         }
         
         return heroArrayParsed
@@ -44,7 +47,7 @@ class HeroJSONParser {
         return wikiURLFromHero
     }
     
-    private static func getJSONComicListFromHero(heroID: Int, completion: @escaping ([JSON]) -> Void) {
+    private static func getJSONComicListFromHero(heroID: Int32, completion: @escaping ([JSON]) -> Void) {
         
         let heroIDString = String(heroID)
         let requestFromHeroIDString = "https://gateway.marvel.com:443/v1/public/characters/\(heroIDString+"/comics"+MarvelAPIHandler.PUBLIC_PRIVATE_KEY)"
@@ -64,22 +67,11 @@ class HeroJSONParser {
         
     }
     
-    static func parseComics (heroID: Int, completion: @escaping ([Comic]) -> Void)  {
+    static func parseComics (heroID: Int32, completion: @escaping ([Comic]) -> Void)  {
 
         var comicListParsed = [Comic] ()
-       
-        getJSONComicListFromHero(heroID: heroID) { (comicListJSON) in
-            
-            for comicJSON in comicListJSON{
-                
-                    let newComic = Comic(id: comicJSON["id"].intValue, title: comicJSON["title"].stringValue, description: comicJSON["description"].stringValue , image: comicJSON["thumbnail"]["path"].stringValue + "." + comicJSON["thumbnail"]["extension"].stringValue )
-                    comicListParsed.append(newComic)
-     
-            }
-       
-            completion(comicListParsed)
-            
-        }
+        
+        
         
     }
         

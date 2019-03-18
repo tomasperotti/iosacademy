@@ -11,20 +11,28 @@ import SwiftyJSON
 
 class ComicJSONParser {
     
-    static func parseComics(json: JSON) -> [Comic] {
+    static func parseComics(comicResponse: ComicsResponse) -> [Comic] {
         
-        let comicListJSON = json["data"]["results"].arrayValue
         var comicListParsed = [Comic] ()
         
-        for comicJSON in comicListJSON {
-            
-            let newComic = Comic(id: comicJSON["id"].intValue, title: comicJSON["title"].stringValue, description: comicJSON["description"].stringValue , image: comicJSON["thumbnail"]["path"].stringValue + "." + comicJSON["thumbnail"]["extension"].stringValue )
-            comicListParsed.append(newComic)
-            
-        }
+        comicListParsed = Array(comicResponse.data.results)
+
+        return comicListParsed
+        
+    }
+    
+    static func parseComicsFromHeroID(heroID: Int, comicResponse: ComicsResponse) -> [Comic] {
+        
+        var comicListParsed = [Comic] ()
+        
+        // Do some logic to obtain response from a certain hero
+        
+        comicListParsed = Array(comicResponse.data.results)
         
         return comicListParsed
         
     }
+    
+    
 
 }

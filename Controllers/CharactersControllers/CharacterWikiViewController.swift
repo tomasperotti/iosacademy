@@ -33,7 +33,9 @@ class CharacterWikiViewController: UIViewController {
         
         startActivityIndicator()
         
-        if hero?.wikiURL != "" {
+        // MARK: TOFIX - render web view
+        
+       /* if hero?.wikiURL != "" {
             
             if let urlWikiString =  hero?.wikiURL {
                 
@@ -52,7 +54,7 @@ class CharacterWikiViewController: UIViewController {
             stopActivityIndicator()
             closeButton.backgroundColor = UIColor.black
             closeButton.setTitle("No info, please close", for: UIControl.State.normal)
-        }
+        }*/
         
         
         

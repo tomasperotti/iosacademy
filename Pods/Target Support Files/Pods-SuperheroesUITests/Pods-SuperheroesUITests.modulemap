@@ -1,0 +1,6 @@
+framework module Pods_SuperheroesUITests {
+  umbrella header "Pods-SuperheroesUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

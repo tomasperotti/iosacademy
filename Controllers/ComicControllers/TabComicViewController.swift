@@ -7,24 +7,28 @@
 //
 
 import UIKit
+import SDWebImage
 
-class TabComicViewController: UIViewController {
+class TabComicDetailViewController: UIViewController {
+    
+    var comic : Comic?
 
+    @IBOutlet weak var titleComicTextField: UITextField!
+    @IBOutlet weak var descriptionComicTextField: UITextField!
+    @IBOutlet weak var detailComicImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        if let imageFromURL = comic?.image {
+            detailComicImageView.sd_setImage(with:  URL(string: imageFromURL.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
+        }
+        
+        titleComicTextField.text = comic?.title
+        descriptionComicTextField.text = comic?.description
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

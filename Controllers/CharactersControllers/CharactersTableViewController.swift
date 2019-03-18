@@ -38,7 +38,8 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
         
         let cell = heroTableView.dequeueReusableCell(withIdentifier: "heroCell", for: indexPath) as! CharacterCell
        
-        // TODO: Mejorar esta logica para no crear tantos heros
+        // MARK: TOIMP: Mejorar esta logica para no crear tantos heros
+        
         let hero: Character
         if isFiltering() {
             hero = filteredSuperheroes[indexPath.row]
@@ -48,11 +49,12 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
         cell.heroNameLabel.text = hero.name
         cell.delegate = self
         cell.scheduleButton.tag = indexPath.row
-        
+
         // Setting ImageVIew
-        if let imageFromURL = hero.imageName {
-            cell.imageView?.sd_setImage(with:  URL(string: imageFromURL.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
-        }
+        let image = hero.thumbnail.path + "." + hero.thumbnail.ext
+
+        cell.imageView?.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
+ 
 
         return cell
     }
@@ -63,10 +65,16 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
        
         setupNavBar()
         
-        managerSuperhero.getHeroesFromAPI { (arrayHeroesFromManager) in
-            self.arrayHeroes = arrayHeroesFromManager
-            self.heroTableView.reloadData()
+        // MARK: TOFIX: obtaining heros from manager
+        
+        managerSuperhero.getHeroes { (characterList) in
+            self.arrayHeroes = characterList
         }
+        /*managerSuperhero.getHeroesFromAPI { (arrayHeroesFromManager) in
+         
+            /*self.arrayHeroes = arrayHeroesFromManager
+            self.heroTableView.reloadData()*/
+        }*/
 
     }
     
@@ -169,7 +177,7 @@ extension CharactersTableViewController : CharacterCellDelegate {
             
             // Create the notification title and body
             let content = UNMutableNotificationContent()
-            content.title = "Hey it's time to see your superhero \(self.arrayHeroes[indexFromHeroToSchedule!].name!)!"
+            content.title = "Hey it's time to see your superhero \(self.arrayHeroes[indexFromHeroToSchedule!].name)!"
             content.body = "Look at me!"
             
             var dateComponents = DateComponents()
