@@ -27,9 +27,7 @@ class ComicCollectionViewController: UIViewController {
         layout.minimumInteritemSpacing = 2
         layout.minimumLineSpacing = 2
         self.comicCollectionView.collectionViewLayout = layout
-        
-        // MARK: TOFIX: get comic list
-        
+
         ComicManager.getComicsFromAPI(completion: { (comicList) in
      
             self.comicList = comicList
@@ -69,9 +67,7 @@ extension ComicCollectionViewController : UICollectionViewDataSource, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as! ComicCollectionViewCell
         
         let newComic = comicList[indexPath.row]
-        
-        // MARK: TOFIX: Image get
-        
+
         let image = newComic.thumbnail.path + "." + newComic.thumbnail.ext
         
         cell.comicImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)

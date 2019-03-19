@@ -35,8 +35,6 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
         
         heroImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
         
-        // MARK: TOFIX - comics
-        
         ComicManager.getComicsFromAPI(heroID: hero.id) { (comicList) in
             self.comicListFromHero = comicList
             self.heroCollectionView.reloadData()
@@ -79,15 +77,13 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
             if let dest = segue.destination as? ComicDetailViewController {
                 
                 if let s = sender as? CharacterCollectionViewCell {
-                    
-                   // MARK: TOFIX - no comic member
-                    
+
                     if let index = heroCollectionView.indexPath(for: s)?.row {
                        dest.heroComic = comicListFromHero[index]
                     }
                     
+                }
             }
-            
             else {
                     if let dest = segue.destination as? CharacterWikiViewController {
                         dest.hero = self.hero
@@ -98,10 +94,6 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
         
         }
 
-    }
-        
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        
         return comicListFromHero.count

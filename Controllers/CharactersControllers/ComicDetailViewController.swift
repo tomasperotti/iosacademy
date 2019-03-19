@@ -17,6 +17,7 @@ class ComicDetailViewController: UIViewController {
     @IBOutlet weak var comicImageView: UIImageView!
     @IBOutlet weak var titleComicLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
     @IBAction func closeComicDetailModal(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -34,7 +35,12 @@ class ComicDetailViewController: UIViewController {
         
         // MARK: TOFIX: no muestra description en UI
         
-        descriptionLabel.text = heroComic.comicDescription
+        if heroComic.comicDescription != nil {
+            descriptionLabel.text = heroComic.comicDescription
+        } else {
+            descriptionLabel.text = "No description available."
+        }
+        
 
         // Do any additional setup after loading the view.
     }

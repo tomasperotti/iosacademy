@@ -196,6 +196,7 @@ enum URLType: String, Decodable {
     case comiclink
     
 }
+
 class URLs: NSManagedObject, Decodable {
     /**
      CoreData no tiene tipo de dato "enum", entonces tenemos que parsear el valor del enum
@@ -238,6 +239,7 @@ class URLs: NSManagedObject, Decodable {
         self.type = try container.decode(String.self, forKey: .type)
         self.url = try container.decode(String.self, forKey: .url)
     }
+    
 }
 
 

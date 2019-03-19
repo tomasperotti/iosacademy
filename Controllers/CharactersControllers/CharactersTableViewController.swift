@@ -19,7 +19,7 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
     var searchController : UISearchController?
     var arrayHeroes : [Character] = []
     var filteredSuperheroes : [Character] = []
-    let managerSuperhero = SuperheroManager()
+    let managerSuperhero = CharacterManager()
     var dateFromPicker : Date?
     var intervalSelectedByUser : Double?
     var indexFromHeroToSchedule : Int?
@@ -33,13 +33,8 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        //CON CELDA CUSTOM
-        
+
         let cell = heroTableView.dequeueReusableCell(withIdentifier: "heroCell", for: indexPath) as! CharacterCell
-       
-        // MARK: TOIMP: Mejorar esta logica para no crear tantos heros
-        
         let hero: Character
         if isFiltering() {
             hero = filteredSuperheroes[indexPath.row]
@@ -64,9 +59,7 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
         super.viewDidLoad()
        
         setupNavBar()
-        
-        // MARK: TOFIX: obtaining heros from manager
-        
+
         managerSuperhero.getHeroes { (characterList) in
             self.arrayHeroes = characterList
             self.heroTableView.reloadData()    
@@ -116,11 +109,11 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         
 
-        SuperheroManager().searchSuperheroes(nameWith: searchText) { (fSuperheroes, success, message) in
+        CharacterManager().searchSuperheroes(nameWith: searchText) { (fSuperheroes, success, message) in
             if (success == true) {
                 self.filteredSuperheroes = fSuperheroes ?? []
             } else {
-                // TODO: Setear alguna label con no results
+                // MARK: TODO: Setear alguna label con no results
             }
         }
         

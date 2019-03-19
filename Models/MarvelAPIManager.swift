@@ -25,6 +25,8 @@ class MarvelAPIManager {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
 
+        delete(context: context, onlyFirstValue: false)
+        
         guard let urlToExecute = urlToExecute else {
             return
         }
@@ -50,32 +52,9 @@ class MarvelAPIManager {
                 /** Seteamos la referencia al context */
                 decoder.userInfo[CodingUserInfoKey.context!] = context
                 let charResponse: T = try decoder.decode(T.self, from: validData)
-                /**
-                 Una vez que ya tenemos la referencia al context, podemos decodear.
-                 Al momento de decodear, se van a ir llamando todos los init(from Decoder...) de nuestros modelos,
-                 cada init va metiendo entidades en el context
-                 */
-//                switch entityToDecode {
-//                    
-//                    case "CharactersResponse" :
-//                            let charResponse: CharactersResponse = try decoder.decode(CharactersResponse.self, from: validData)
-//                            print("TODO VINO OKA en characters! ::: \(charResponse.data.results.first)")
-//                    
-//                    
-//                    case "ComicsResponse" :
-//                            let comicResponse: ComicsResponse = try decoder.decode(ComicsResponse.self, from: validData)
-//                            print("TODO VINO OK en comics! ::: \(comicResponse.data.results.first)")
-//                    
-//                    
-//                    default :
-//                            print("Not valid entity to decode!! You can use: Characters or Comics")
-//                }
-//                
-                /**
-                 Ya con el contexto cargado de todas nuestras entidades, llamamos a .save() para
-                 efectivamente guardar los registros a nuestra base
-                 */
+                
                 delete(context: context, onlyFirstValue: false)
+                
                 try context.save()
                 
                 DispatchQueue.main.async {
@@ -122,6 +101,7 @@ class MarvelAPIManager {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let modelNameAsString = entityToDecode.rawValue
+       
         switch entityToDecode {
            
             case .CharactersResponse :

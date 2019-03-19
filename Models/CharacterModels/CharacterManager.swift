@@ -11,7 +11,7 @@ import CoreData
 import UIKit
 
 
-class SuperheroManager {
+class CharacterManager {
     
     var urlSession: URLSession!
     

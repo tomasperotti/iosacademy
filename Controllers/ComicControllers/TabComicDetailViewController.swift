@@ -27,10 +27,14 @@ class TabComicDetailViewController: UIViewController {
         
         titleComicTextField.text = comic.title
         
-        // MARK: -TOFIX: no muestra en UI
-        descriptionComicTextField.text = comic.comicDescription
+        // MARK: -TOFIX: No obtiene la description del JSON
         
-        // Do any additional setup after loading the view.
+        if comic.comicDescription != nil  {
+            descriptionComicTextField.text = comic.comicDescription
+        } else {
+            descriptionComicTextField.text = "No description available."
+        }
+
     }
     
 }

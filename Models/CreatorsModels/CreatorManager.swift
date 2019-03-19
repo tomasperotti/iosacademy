@@ -15,7 +15,7 @@ class CreatorManager {
     
     // MARK: - TOFIX: harcoded request
     
-    static let harcodedRequest = "https://gateway.marvel.com:443/v1/public/creators"+MarvelAPIHandler.PUBLIC_PRIVATE_KEY
+    static let harcodedRequest = "https://gateway.marvel.com:443/v1/public/creators"+MarvelAPIKeysHandler.PUBLIC_PRIVATE_KEY
     
     static func getCreatorsFromAPI (completion: @escaping ([Creator]) -> Void) {
         
