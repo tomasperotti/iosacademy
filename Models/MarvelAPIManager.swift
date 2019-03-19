@@ -47,6 +47,7 @@ class MarvelAPIManager {
             }
             do {
                 
+                
                 /** Parseamos la data */
                 let decoder = JSONDecoder()
                 /** Seteamos la referencia al context */
