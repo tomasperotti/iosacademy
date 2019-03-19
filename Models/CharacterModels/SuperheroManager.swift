@@ -74,6 +74,7 @@ class SuperheroManager {
             if couldGetComicsList {
                 print("Pudo obtener la lista de heroes")
             }
+            
         }
         
         

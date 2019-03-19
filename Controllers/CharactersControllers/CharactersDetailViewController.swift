@@ -12,8 +12,9 @@ import SDWebImage
 
 class CharactersDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var hero : Character?
+    var hero : Character!
     var string : Any?
+    var comicListFromHero : [Comic]!
     
     @IBOutlet weak var heroCollectionView: UICollectionView!
     @IBOutlet weak var heroIDLabel: UILabel!
@@ -22,35 +23,25 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
     @IBOutlet var heroImageView: UIImageView!
        
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        heroNameLabel.text = hero?.name
-        if let heroID = hero?.id {
-            heroIDLabel.text = String(heroID)
+        
+        heroNameLabel.text = hero.name
+        heroIDLabel.text = String(hero.id)
+        heroDescLabel.text = hero.heroDescription
+        
+        let image = hero.thumbnail.path + "." + hero.thumbnail.ext
+        
+        heroImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
+        
+        // MARK: TOFIX - comics
+        
+        ComicManager.getComicsFromAPI(heroID: hero.id) { (comicList) in
+            self.comicListFromHero = comicList
         }
         
-        // MARK: TOFIX - Image view
-        
-        heroDescLabel.text = hero?.description
-        
-       /* if let imageFromURL = hero?.imageName {
-            heroImageView.sd_setImage(with:  URL(string: imageFromURL.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
-        }
-        */
-       
-        // MARK: TOFIX - comis
-        
-        /*
-        if let idHero = hero?.id {
-            HeroJSONParser.parseComics(heroID: idHero) { (comicList) in
-                self.hero?.comic = comicList
-                self.heroCollectionView.reloadData()
-            }
-            
-        }
-         */
 
-  
     }
     
     
@@ -86,32 +77,33 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
           
             if let dest = segue.destination as? ComicDetailViewController {
                 
-                print(sender.debugDescription)
-                
                 if let s = sender as? CharacterCollectionViewCell {
                     
                    // MARK: TOFIX - no comic member
                     
-                    /* if let index = heroCollectionView.indexPath(for: s)?.row {
-                       dest.heroComic = hero?.comic?[index] ?? nil
-                    }*/
-             
-                }
+                    if let index = heroCollectionView.indexPath(for: s)?.row {
+                       dest.heroComic = comicListFromHero[index]
+                    }
+                    
             }
             
             else {
-                if let dest = segue.destination as? CharacterWikiViewController {
-                    dest.hero = self.hero
-                }
+                    if let dest = segue.destination as? CharacterWikiViewController {
+                        dest.hero = self.hero
+                    }
             }
+                
         }
         
+        }
+
     }
+        
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // MARK: TOFIX - No comics member
-        //hero?.comic?.count ??
-        return  0
+       
+        return  comicListFromHero.count
    
     }
     
@@ -119,8 +111,7 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
         let cell = heroCollectionView.dequeueReusableCell(withReuseIdentifier: "heroCollectionCell", for: indexPath) as! CharacterCollectionViewCell
-        // MARK: TOFIX: no comic member
-        // cell.heroCollectionLabel.text = hero?.comic?[indexPath.row].title
+        cell.heroCollectionLabel.text = comicListFromHero[indexPath.row].title
     
         return cell
         

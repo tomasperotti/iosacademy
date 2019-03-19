@@ -72,10 +72,9 @@ extension ComicCollectionViewController : UICollectionViewDataSource, UICollecti
         
         // MARK: TOFIX: Image get
         
-        /*
-        if let comicImageURL = newComic.image {
-                cell.comicImageView.sd_setImage(with:  URL(string: comicImageURL.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
-        }*/
+        let image = newComic.thumbnail.path + "." + newComic.thumbnail.ext
+        
+        cell.comicImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
           
             cell.layer.borderWidth = 0.5
             cell.layer.borderColor = UIColor.gray.cgColor

@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		1043701EF07ECBE676EA636B /* Pods_SuperheroesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D23831B61154455F1AF9B1 /* Pods_SuperheroesTests.framework */; };
 		8B00E16F222FEEE600FFF32E /* ComicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00E16E222FEEE600FFF32E /* ComicDetailViewController.swift */; };
-		8B00E173222FF9B500FFF32E /* spectacularSpiderman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B00E172222FF9B500FFF32E /* spectacularSpiderman.jpg */; };
-		8B00E175222FF9BA00FFF32E /* ultimateSpiderman.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8B00E174222FF9BA00FFF32E /* ultimateSpiderman.jpeg */; };
-		8B00E177222FF9BF00FFF32E /* unlimitedSpiderman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B00E176222FF9BF00FFF32E /* unlimitedSpiderman.jpg */; };
-		8B00E179222FF9C400FFF32E /* amazingSpiderman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B00E178222FF9C400FFF32E /* amazingSpiderman.jpg */; };
 		8B0DE102223C4BCD00FE42EB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE100223C4BCD00FE42EB /* Model.xcdatamodeld */; };
 		8B11179F2238259000B8BFDE /* ComicStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B11179D2238259000B8BFDE /* ComicStoryboard.storyboard */; };
 		8B1117A4223828BD00B8BFDE /* CharacterWikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1117A3223828BD00B8BFDE /* CharacterWikiViewController.swift */; };
@@ -20,7 +16,6 @@
 		8B4E23382229B97E0037249F /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E23372229B97E0037249F /* Comic.swift */; };
 		8B4E233A2229CA4B0037249F /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E23392229CA4B0037249F /* CharacterCollectionViewCell.swift */; };
 		8B4E233E2229D5AB0037249F /* ComicModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E233D2229D5AB0037249F /* ComicModalViewController.swift */; };
-		8B535B1122287760003E7CB0 /* kisspng-the-amazing-spider-man-2-computer-icons-spiderman-5abc68750208e0.9895283015222969490083.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B535B102228775F003E7CB0 /* kisspng-the-amazing-spider-man-2-computer-icons-spiderman-5abc68750208e0.9895283015222969490083.jpg */; };
 		8B535B1322287B80003E7CB0 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B535B1222287B80003E7CB0 /* CharacterCell.swift */; };
 		8B606DE8223BDC4100AD9048 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B606DE7223BDC4100AD9048 /* DatePickerViewController.xib */; };
 		8B606DEB223BDCB100AD9048 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B606DEA223BDCB100AD9048 /* DatePickerViewController.swift */; };
@@ -28,14 +23,13 @@
 		8B8E26E822393CD60067FA9D /* ComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E26E722393CD60067FA9D /* ComicCollectionViewCell.swift */; };
 		8B8E26EC223951E60067FA9D /* ComicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E26EB223951E60067FA9D /* ComicManager.swift */; };
 		8B8E26EE223952850067FA9D /* ComicJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E26ED223952850067FA9D /* ComicJSONParser.swift */; };
-		8B8E26F4223971FF0067FA9D /* TabComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E26F3223971FF0067FA9D /* TabComicViewController.swift */; };
+		8B8E26F4223971FF0067FA9D /* TabComicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E26F3223971FF0067FA9D /* TabComicDetailViewController.swift */; };
 		8B8E26F8223976320067FA9D /* CreatorCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E26F7223976320067FA9D /* CreatorCollectionViewController.swift */; };
 		8B8E26FA223976460067FA9D /* CreatorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E26F9223976460067FA9D /* CreatorDetailViewController.swift */; };
 		8B8E26FD223977A70067FA9D /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E26FC223977A70067FA9D /* Creator.swift */; };
 		8B8E26FF223978080067FA9D /* CreatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E26FE223978080067FA9D /* CreatorManager.swift */; };
 		8B8E27012239783D0067FA9D /* CreatorJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E27002239783D0067FA9D /* CreatorJSONParser.swift */; };
 		8B8E270422398CC10067FA9D /* CreatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E270322398CC10067FA9D /* CreatorCollectionViewCell.swift */; };
-		8B8E2706223A7F7F0067FA9D /* mapIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8E2705223A7F7E0067FA9D /* mapIcon.png */; };
 		8B8E2709223A80960067FA9D /* StoreMapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B8E2707223A80960067FA9D /* StoreMapStoryboard.storyboard */; };
 		8B8E270B223A837A0067FA9D /* GlobantBB.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8B8E270A223A837A0067FA9D /* GlobantBB.gpx */; };
 		8B8E270D223A83DD0067FA9D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8E270C223A83DD0067FA9D /* MapKit.framework */; };
@@ -51,19 +45,11 @@
 		8B91B4D922271E2C00807E4D /* SuperheroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91B4D822271E2C00807E4D /* SuperheroesUITests.swift */; };
 		8B91B4EA22271FEA00807E4D /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91B4E922271FEA00807E4D /* Character.swift */; };
 		8B91B4FC2227241B00807E4D /* CharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91B4FB2227241B00807E4D /* CharactersTableViewController.swift */; };
-		8B91CE8B22314CAF003E1C00 /* keys.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8B91CE8A22314CAF003E1C00 /* keys.txt */; };
 		8B91CE8D22314F1C003E1C00 /* MarvelAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91CE8C22314F1C003E1C00 /* MarvelAPIHandler.swift */; };
 		8B93DF3F2231A38D006DE902 /* SuperheroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B93DF3E2231A38D006DE902 /* SuperheroManager.swift */; };
 		8B9F0DA822329D5D009E4E2C /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F0DA722329D5D009E4E2C /* NetworkingClient.swift */; };
-		8BB2E1E82238220D007E6C4F /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 8BB2E1E72238220D007E6C4F /* favicon.ico */; };
-		8BB2E1EA22382296007E6C4F /* icons8-study-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB2E1E922382295007E6C4F /* icons8-study-50.png */; };
 		8BCFA33A2232CF30007915F7 /* HeroJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFA3392232CF30007915F7 /* HeroJSONParser.swift */; };
 		8BE2728B22295E5A00B1F43E /* CharactersModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE2728A22295E5A00B1F43E /* CharactersModalViewController.swift */; };
-		8BE2729322296BD800B1F43E /* 1193_14.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE2729222296BD800B1F43E /* 1193_14.png */; };
-		8BE2729822296C8C00B1F43E /* 5a37cfd69fc311.1799733215136071266544.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE2729722296C8C00B1F43E /* 5a37cfd69fc311.1799733215136071266544.png */; };
-		8BE2729A22296CE600B1F43E /* 5a20f3c4338d42.9422659315121089962112.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE2729922296CE600B1F43E /* 5a20f3c4338d42.9422659315121089962112.png */; };
-		8BE2729C2229A20B00B1F43E /* kisspng-hulk-thor-iron-man-captain-america-light-5b4652d158e061.8806877215313353773641.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE2729B2229A20A00B1F43E /* kisspng-hulk-thor-iron-man-captain-america-light-5b4652d158e061.8806877215313353773641.png */; };
-		8BE2729E2229A32000B1F43E /* kisspng-iron-man-spider-man-marvel-comics-logo-marvel-ente-marvel-5abc60a90c5ca1.0592811415222949530506.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE2729D2229A32000B1F43E /* kisspng-iron-man-spider-man-marvel-comics-logo-marvel-ente-marvel-5abc60a90c5ca1.0592811415222949530506.png */; };
 		8BF2C02B22400CA700A0F609 /* MarvelAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2C02A22400CA700A0F609 /* MarvelAPIManager.swift */; };
 		BD4D55C0C5BB9499C27865D9 /* Pods_SuperheroesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2115953EBB501D48B8590680 /* Pods_SuperheroesUITests.framework */; };
 		C0ACCF0B14884BBECC9D2793 /* Pods_Superheroes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5424EA3428EFDF709149C916 /* Pods_Superheroes.framework */; };
@@ -94,21 +80,13 @@
 		5A756AAD6C22CD9C03D3EA11 /* Pods-Superheroes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Superheroes.release.xcconfig"; path = "Target Support Files/Pods-Superheroes/Pods-Superheroes.release.xcconfig"; sourceTree = "<group>"; };
 		77D23831B61154455F1AF9B1 /* Pods_SuperheroesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperheroesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B00E16E222FEEE600FFF32E /* ComicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailViewController.swift; sourceTree = "<group>"; };
-		8B00E172222FF9B500FFF32E /* spectacularSpiderman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = spectacularSpiderman.jpg; path = ../../../../Downloads/spectacularSpiderman.jpg; sourceTree = "<group>"; };
-		8B00E174222FF9BA00FFF32E /* ultimateSpiderman.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ultimateSpiderman.jpeg; path = ../../../../Downloads/ultimateSpiderman.jpeg; sourceTree = "<group>"; };
-		8B00E176222FF9BF00FFF32E /* unlimitedSpiderman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = unlimitedSpiderman.jpg; path = ../../../../Downloads/unlimitedSpiderman.jpg; sourceTree = "<group>"; };
-		8B00E178222FF9C400FFF32E /* amazingSpiderman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = amazingSpiderman.jpg; path = ../../../../Downloads/amazingSpiderman.jpg; sourceTree = "<group>"; };
 		8B0DE101223C4BCD00FE42EB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8B11179E2238259000B8BFDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ComicStoryboard.storyboard; sourceTree = "<group>"; };
 		8B1117A3223828BD00B8BFDE /* CharacterWikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterWikiViewController.swift; sourceTree = "<group>"; };
-		8B1117A5223828CF00B8BFDE /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
-		8B1117A6223828D100B8BFDE /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = video.mp4; path = ../../../../Downloads/video.mp4; sourceTree = "<group>"; };
 		8B1117A722384B7800B8BFDE /* CreatorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreatorStoryboard.storyboard; sourceTree = "<group>"; };
 		8B4E23372229B97E0037249F /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		8B4E23392229CA4B0037249F /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		8B4E233D2229D5AB0037249F /* ComicModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicModalViewController.swift; sourceTree = "<group>"; };
-		8B535B0F22287738003E7CB0 /* png-flash-png-260_360.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "png-flash-png-260_360.jpg"; sourceTree = "<group>"; };
-		8B535B102228775F003E7CB0 /* kisspng-the-amazing-spider-man-2-computer-icons-spiderman-5abc68750208e0.9895283015222969490083.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "kisspng-the-amazing-spider-man-2-computer-icons-spiderman-5abc68750208e0.9895283015222969490083.jpg"; path = "../../../../Downloads/kisspng-the-amazing-spider-man-2-computer-icons-spiderman-5abc68750208e0.9895283015222969490083.jpg"; sourceTree = "<group>"; };
 		8B535B1222287B80003E7CB0 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		8B606DE7223BDC4100AD9048 /* DatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
 		8B606DEA223BDCB100AD9048 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -116,14 +94,13 @@
 		8B8E26E722393CD60067FA9D /* ComicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCollectionViewCell.swift; sourceTree = "<group>"; };
 		8B8E26EB223951E60067FA9D /* ComicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicManager.swift; sourceTree = "<group>"; };
 		8B8E26ED223952850067FA9D /* ComicJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicJSONParser.swift; sourceTree = "<group>"; };
-		8B8E26F3223971FF0067FA9D /* TabComicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabComicViewController.swift; sourceTree = "<group>"; };
+		8B8E26F3223971FF0067FA9D /* TabComicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabComicDetailViewController.swift; sourceTree = "<group>"; };
 		8B8E26F7223976320067FA9D /* CreatorCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorCollectionViewController.swift; sourceTree = "<group>"; };
 		8B8E26F9223976460067FA9D /* CreatorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorDetailViewController.swift; sourceTree = "<group>"; };
 		8B8E26FC223977A70067FA9D /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
 		8B8E26FE223978080067FA9D /* CreatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorManager.swift; sourceTree = "<group>"; };
 		8B8E27002239783D0067FA9D /* CreatorJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorJSONParser.swift; sourceTree = "<group>"; };
 		8B8E270322398CC10067FA9D /* CreatorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorCollectionViewCell.swift; sourceTree = "<group>"; };
-		8B8E2705223A7F7E0067FA9D /* mapIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapIcon.png; path = ../../../../Downloads/mapIcon.png; sourceTree = "<group>"; };
 		8B8E2708223A80960067FA9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/StoreMapStoryboard.storyboard; sourceTree = "<group>"; };
 		8B8E270A223A837A0067FA9D /* GlobantBB.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GlobantBB.gpx; sourceTree = "<group>"; };
 		8B8E270C223A83DD0067FA9D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -144,30 +121,12 @@
 		8B91B4D822271E2C00807E4D /* SuperheroesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperheroesUITests.swift; sourceTree = "<group>"; };
 		8B91B4DA22271E2C00807E4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B91B4E922271FEA00807E4D /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		8B91B4F62227215B00807E4D /* 7-72539_superhero-png-free-download-superheroes-png.png.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7-72539_superhero-png-free-download-superheroes-png.png.jpeg"; sourceTree = "<group>"; };
-		8B91B4F72227215B00807E4D /* 1468975560_preview_kisspng-superman-batman-superhero-movie-drawing-superhero-5abb19236ea094.1232875815222111074531.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1468975560_preview_kisspng-superman-batman-superhero-movie-drawing-superhero-5abb19236ea094.1232875815222111074531.jpg"; sourceTree = "<group>"; };
-		8B91B4F82227215B00807E4D /* 7-72539_superhero-png-free-download-superheroes-png.png.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "7-72539_superhero-png-free-download-superheroes-png.png.jpeg"; path = "../../../../Downloads/7-72539_superhero-png-free-download-superheroes-png.png.jpeg"; sourceTree = "<group>"; };
 		8B91B4FB2227241B00807E4D /* CharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewController.swift; sourceTree = "<group>"; };
-		8B91CE8722314BBE003E1C00 /* png-flash-png-260_360.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "png-flash-png-260_360.jpg"; path = "../../../../Downloads/png-flash-png-260_360.jpg"; sourceTree = "<group>"; };
-		8B91CE8822314BBE003E1C00 /* 5a21cb5db9bb48.8526466615121641897608.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 5a21cb5db9bb48.8526466615121641897608.png; path = ../../../../Downloads/5a21cb5db9bb48.8526466615121641897608.png; sourceTree = "<group>"; };
-		8B91CE8922314BC7003E1C00 /* unnamed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unnamed.png; sourceTree = "<group>"; };
-		8B91CE8A22314CAF003E1C00 /* keys.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = keys.txt; sourceTree = "<group>"; };
 		8B91CE8C22314F1C003E1C00 /* MarvelAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIHandler.swift; sourceTree = "<group>"; };
 		8B93DF3E2231A38D006DE902 /* SuperheroManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperheroManager.swift; sourceTree = "<group>"; };
 		8B9F0DA722329D5D009E4E2C /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
-		8BB2E1E422381FD6007E6C4F /* icons8-iron-man-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-iron-man-50.png"; sourceTree = "<group>"; };
-		8BB2E1E522381FD6007E6C4F /* icons8-writer-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-writer-50.png"; sourceTree = "<group>"; };
-		8BB2E1E622381FD8007E6C4F /* 85529.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 85529.png; sourceTree = "<group>"; };
-		8BB2E1E72238220D007E6C4F /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = favicon.ico; path = ../../../../Downloads/favicon.ico; sourceTree = "<group>"; };
-		8BB2E1E922382295007E6C4F /* icons8-study-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-study-50.png"; path = "../../../../Downloads/icons8-study-50.png"; sourceTree = "<group>"; };
 		8BCFA3392232CF30007915F7 /* HeroJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroJSONParser.swift; sourceTree = "<group>"; };
 		8BE2728A22295E5A00B1F43E /* CharactersModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModalViewController.swift; sourceTree = "<group>"; };
-		8BE2729222296BD800B1F43E /* 1193_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1193_14.png; path = ../../../../Downloads/1193_14.png; sourceTree = "<group>"; };
-		8BE2729622296C5D00B1F43E /* 5a21cb5db9bb48.8526466615121641897608.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5a21cb5db9bb48.8526466615121641897608.png; sourceTree = "<group>"; };
-		8BE2729722296C8C00B1F43E /* 5a37cfd69fc311.1799733215136071266544.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 5a37cfd69fc311.1799733215136071266544.png; path = ../../../../Downloads/5a37cfd69fc311.1799733215136071266544.png; sourceTree = "<group>"; };
-		8BE2729922296CE600B1F43E /* 5a20f3c4338d42.9422659315121089962112.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 5a20f3c4338d42.9422659315121089962112.png; path = ../../../../Downloads/5a20f3c4338d42.9422659315121089962112.png; sourceTree = "<group>"; };
-		8BE2729B2229A20A00B1F43E /* kisspng-hulk-thor-iron-man-captain-america-light-5b4652d158e061.8806877215313353773641.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kisspng-hulk-thor-iron-man-captain-america-light-5b4652d158e061.8806877215313353773641.png"; path = "../../../../Downloads/kisspng-hulk-thor-iron-man-captain-america-light-5b4652d158e061.8806877215313353773641.png"; sourceTree = "<group>"; };
-		8BE2729D2229A32000B1F43E /* kisspng-iron-man-spider-man-marvel-comics-logo-marvel-ente-marvel-5abc60a90c5ca1.0592811415222949530506.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kisspng-iron-man-spider-man-marvel-comics-logo-marvel-ente-marvel-5abc60a90c5ca1.0592811415222949530506.png"; path = "../../../../Downloads/kisspng-iron-man-spider-man-marvel-comics-logo-marvel-ente-marvel-5abc60a90c5ca1.0592811415222949530506.png"; sourceTree = "<group>"; };
 		8BF2C02A22400CA700A0F609 /* MarvelAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIManager.swift; sourceTree = "<group>"; };
 		8D339BEDFCCA7B0230D31730 /* Pods-SuperheroesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperheroesUITests.release.xcconfig"; path = "Target Support Files/Pods-SuperheroesUITests/Pods-SuperheroesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8F206B5695B8EF978D664CBF /* Pods-Superheroes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Superheroes.debug.xcconfig"; path = "Target Support Files/Pods-Superheroes/Pods-Superheroes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -251,7 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				8B8E26E12239389D0067FA9D /* ComicCollectionViewController.swift */,
-				8B8E26F3223971FF0067FA9D /* TabComicViewController.swift */,
+				8B8E26F3223971FF0067FA9D /* TabComicDetailViewController.swift */,
 			);
 			path = ComicControllers;
 			sourceTree = "<group>";
@@ -345,7 +304,6 @@
 		8B91B4B722271E2B00807E4D /* Superheroes */ = {
 			isa = PBXGroup;
 			children = (
-				8B91B4F52227215B00807E4D /* imagenes */,
 				8B91B4B822271E2B00807E4D /* AppDelegate.swift */,
 				8B91B4BF22271E2C00807E4D /* Assets.xcassets */,
 				8B91B4C422271E2C00807E4D /* Info.plist */,
@@ -380,40 +338,6 @@
 				8B8E26DF223936230067FA9D /* CharactersControllers */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		8B91B4F52227215B00807E4D /* imagenes */ = {
-			isa = PBXGroup;
-			children = (
-				8B1117A6223828D100B8BFDE /* video.mp4 */,
-				8B8E2705223A7F7E0067FA9D /* mapIcon.png */,
-				8B91CE8A22314CAF003E1C00 /* keys.txt */,
-				8B1117A5223828CF00B8BFDE /* video.mp4 */,
-				8BB2E1E922382295007E6C4F /* icons8-study-50.png */,
-				8BB2E1E72238220D007E6C4F /* favicon.ico */,
-				8BB2E1E422381FD6007E6C4F /* icons8-iron-man-50.png */,
-				8BB2E1E622381FD8007E6C4F /* 85529.png */,
-				8BB2E1E522381FD6007E6C4F /* icons8-writer-50.png */,
-				8B91CE8922314BC7003E1C00 /* unnamed.png */,
-				8B91CE8722314BBE003E1C00 /* png-flash-png-260_360.jpg */,
-				8B91CE8822314BBE003E1C00 /* 5a21cb5db9bb48.8526466615121641897608.png */,
-				8B00E178222FF9C400FFF32E /* amazingSpiderman.jpg */,
-				8B00E176222FF9BF00FFF32E /* unlimitedSpiderman.jpg */,
-				8B00E174222FF9BA00FFF32E /* ultimateSpiderman.jpeg */,
-				8B00E172222FF9B500FFF32E /* spectacularSpiderman.jpg */,
-				8BE2729D2229A32000B1F43E /* kisspng-iron-man-spider-man-marvel-comics-logo-marvel-ente-marvel-5abc60a90c5ca1.0592811415222949530506.png */,
-				8BE2729B2229A20A00B1F43E /* kisspng-hulk-thor-iron-man-captain-america-light-5b4652d158e061.8806877215313353773641.png */,
-				8BE2729922296CE600B1F43E /* 5a20f3c4338d42.9422659315121089962112.png */,
-				8BE2729722296C8C00B1F43E /* 5a37cfd69fc311.1799733215136071266544.png */,
-				8BE2729622296C5D00B1F43E /* 5a21cb5db9bb48.8526466615121641897608.png */,
-				8BE2729222296BD800B1F43E /* 1193_14.png */,
-				8B535B0F22287738003E7CB0 /* png-flash-png-260_360.jpg */,
-				8B535B102228775F003E7CB0 /* kisspng-the-amazing-spider-man-2-computer-icons-spiderman-5abc68750208e0.9895283015222969490083.jpg */,
-				8B91B4F72227215B00807E4D /* 1468975560_preview_kisspng-superman-batman-superhero-movie-drawing-superhero-5abb19236ea094.1232875815222111074531.jpg */,
-				8B91B4F82227215B00807E4D /* 7-72539_superhero-png-free-download-superheroes-png.png.jpeg */,
-				8B91B4F62227215B00807E4D /* 7-72539_superhero-png-free-download-superheroes-png.png.jpeg */,
-			);
-			path = imagenes;
 			sourceTree = "<group>";
 		};
 		8BB2E1D92237EF69007E6C4F /* Storyboards */ = {
@@ -568,26 +492,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B91B4C322271E2C00807E4D /* LaunchScreen.storyboard in Resources */,
-				8B535B1122287760003E7CB0 /* kisspng-the-amazing-spider-man-2-computer-icons-spiderman-5abc68750208e0.9895283015222969490083.jpg in Resources */,
-				8BB2E1EA22382296007E6C4F /* icons8-study-50.png in Resources */,
-				8B00E175222FF9BA00FFF32E /* ultimateSpiderman.jpeg in Resources */,
-				8B91CE8B22314CAF003E1C00 /* keys.txt in Resources */,
-				8B8E2706223A7F7F0067FA9D /* mapIcon.png in Resources */,
-				8BE2729A22296CE600B1F43E /* 5a20f3c4338d42.9422659315121089962112.png in Resources */,
 				8B8E2709223A80960067FA9D /* StoreMapStoryboard.storyboard in Resources */,
 				8B91B4C022271E2C00807E4D /* Assets.xcassets in Resources */,
-				8BE2729822296C8C00B1F43E /* 5a37cfd69fc311.1799733215136071266544.png in Resources */,
 				8B1117A822384B7800B8BFDE /* CreatorStoryboard.storyboard in Resources */,
 				8B91B4BE22271E2B00807E4D /* Main.storyboard in Resources */,
-				8BE2729C2229A20B00B1F43E /* kisspng-hulk-thor-iron-man-captain-america-light-5b4652d158e061.8806877215313353773641.png in Resources */,
-				8BB2E1E82238220D007E6C4F /* favicon.ico in Resources */,
-				8B00E173222FF9B500FFF32E /* spectacularSpiderman.jpg in Resources */,
-				8BE2729E2229A32000B1F43E /* kisspng-iron-man-spider-man-marvel-comics-logo-marvel-ente-marvel-5abc60a90c5ca1.0592811415222949530506.png in Resources */,
-				8BE2729322296BD800B1F43E /* 1193_14.png in Resources */,
-				8B00E179222FF9C400FFF32E /* amazingSpiderman.jpg in Resources */,
 				8B606DE8223BDC4100AD9048 /* DatePickerViewController.xib in Resources */,
 				8B8E270B223A837A0067FA9D /* GlobantBB.gpx in Resources */,
-				8B00E177222FF9BF00FFF32E /* unlimitedSpiderman.jpg in Resources */,
 				8B11179F2238259000B8BFDE /* ComicStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -717,7 +627,7 @@
 				8B4E233A2229CA4B0037249F /* CharacterCollectionViewCell.swift in Sources */,
 				8B93DF3F2231A38D006DE902 /* SuperheroManager.swift in Sources */,
 				8B8E26F8223976320067FA9D /* CreatorCollectionViewController.swift in Sources */,
-				8B8E26F4223971FF0067FA9D /* TabComicViewController.swift in Sources */,
+				8B8E26F4223971FF0067FA9D /* TabComicDetailViewController.swift in Sources */,
 				8B8E26FD223977A70067FA9D /* Creator.swift in Sources */,
 				8B4E23382229B97E0037249F /* Comic.swift in Sources */,
 				8B4E233E2229D5AB0037249F /* ComicModalViewController.swift in Sources */,

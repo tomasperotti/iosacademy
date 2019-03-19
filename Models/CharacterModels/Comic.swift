@@ -57,7 +57,8 @@ class Comic: NSManagedObject, Decodable {
     
     @NSManaged var id : Int32
     @NSManaged var title : String
-    //@NSManaged var comicDescription : String?
+    // MARK: TOFIX: A veces es null y crashea
+    @NSManaged var comicDescription : String
     @NSManaged var thumbnail : Thumbnail
     
     enum CodingKeys: String, CodingKey {

@@ -9,6 +9,8 @@
 import UIKit
 import WebKit
 
+// MARK: TOFIX: falta linkear con coredata
+
 class CharacterWikiViewController: UIViewController {
 
     var hero : Character?
@@ -18,9 +20,9 @@ class CharacterWikiViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         renderWebView { stop in
             stopActivityIndicator()
-            // hacer algo para parar la request 
         }
 
         // Do any additional setup after loading the view.

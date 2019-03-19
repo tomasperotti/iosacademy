@@ -13,7 +13,7 @@ class ComicDetailViewController: UIViewController {
 
     
     @IBOutlet weak var idComicLabel: UILabel!
-    var heroComic : Comic?
+    var heroComic : Comic!
     @IBOutlet weak var comicImageView: UIImageView!
     @IBOutlet weak var titleComicLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -25,21 +25,16 @@ class ComicDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        if let id = heroComic?.id {
-            idComicLabel.text = "\(id)"
-        }
+        idComicLabel.text = "\(heroComic.id)"
+        titleComicLabel.text = heroComic.title
         
-        titleComicLabel.text = heroComic?.title
+        let image = heroComic.thumbnail.path + "." + heroComic.thumbnail.ext
         
-        // MARK: TOFIX: get image
+        comicImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
         
-        /*if let image = heroComic?.image {
-            
-            comicImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
-            
-        }*/
+        // MARK: TOFIX: no muestra description en UI
         
-        descriptionLabel.text = heroComic?.description
+        descriptionLabel.text = heroComic.comicDescription
 
         // Do any additional setup after loading the view.
     }

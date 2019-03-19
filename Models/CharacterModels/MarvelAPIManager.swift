@@ -92,6 +92,9 @@ class MarvelAPIManager {
          Necesitamos llamar a .resume() para que la task se ejecute
          */
         dataTask.resume()
+        
+        completion()
+        
     }
     
     
