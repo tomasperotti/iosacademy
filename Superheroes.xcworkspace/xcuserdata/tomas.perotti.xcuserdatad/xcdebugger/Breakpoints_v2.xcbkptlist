@@ -6,32 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Controllers/ComicControllers/ComicCollectionViewController.swift"
-            timestampString = "574639597.99147"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Models/CharacterModels/MarvelAPIManager.swift"
-            timestampString = "574639597.991853"
+            timestampString = "574695978.082038"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "fetch(entityToDecode:completion:)"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "fetchFromAPI(_:entityToDecode:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,93 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Controllers/CharactersControllers/CharactersTableViewController.swift"
-            timestampString = "574639597.992565"
+            filePath = "Controllers/CharactersControllers/CharactersDetailViewController.swift"
+            timestampString = "574695978.082111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Controllers/CharactersControllers/CharactersTableViewController.swift"
-            timestampString = "574639597.992815"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Models/CharacterModels/SuperheroManager.swift"
-            timestampString = "574639597.9928941"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "getHeroes(completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Superheroes.SuperheroManager.getHeroes(completion: (Swift.Array&lt;Superheroes.Character&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Superheroes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomas.perotti/Documents/Superheroes/Models/CharacterModels/SuperheroManager.swift"
-                  timestampString = "574639605.237202"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "93">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Superheroes.SuperheroManager.getHeroes(completion: (Swift.Array&lt;Superheroes.Character&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Superheroes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomas.perotti/Documents/Superheroes/Models/CharacterModels/SuperheroManager.swift"
-                  timestampString = "574639605.2397979"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Models/CharacterModels/SuperheroManager.swift"
-            timestampString = "574639597.993122"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "getHeroes(completion:)"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -138,92 +42,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Models/ComicModels/ComicManager.swift"
-            timestampString = "574639597.993194"
+            timestampString = "574695978.082177"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "getComicsFromAPI(heroID:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Superheroes.ComicsResponse) -&gt; () in static Superheroes.ComicManager.getComicsFromAPI(heroID: Swift.Int32, completion: (Swift.Array&lt;Superheroes.Comic&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Superheroes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomas.perotti/Documents/Superheroes/Models/ComicModels/ComicManager.swift"
+                  timestampString = "574695978.2933871"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Set&lt;__C.NSManagedObject&gt;&gt;) -&gt; () in closure #1 (Superheroes.ComicsResponse) -&gt; () in static Superheroes.ComicManager.getComicsFromAPI(heroID: Swift.Int32, completion: (Swift.Array&lt;Superheroes.Comic&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Superheroes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomas.perotti/Documents/Superheroes/Models/ComicModels/ComicManager.swift"
+                  timestampString = "574695978.2961659"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "35">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Controllers/CharactersControllers/CharactersDetailViewController.swift"
+            timestampString = "574695978.082563"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Models/ComicModels/ComicManager.swift"
+            timestampString = "574695978.0826221"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getComicsFromAPI(heroID:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Controllers/CharactersControllers/CharactersDetailViewController.swift"
+            timestampString = "574695978.082898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
             endingLineNumber = "37"
-            landmarkName = "getComicsFromAPI(heroID:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Superheroes.ComicManager.getComicsFromAPI(heroID: Swift.Int, completion: (Swift.Array&lt;Superheroes.Comic&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Superheroes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomas.perotti/Documents/Superheroes/Models/ComicModels/ComicManager.swift"
-                  timestampString = "574639605.255038"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "1179">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in static Superheroes.ComicManager.getComicsFromAPI(heroID: Swift.Int, completion: (Swift.Array&lt;Superheroes.Comic&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Superheroes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomas.perotti/Documents/Superheroes/Models/ComicModels/ComicManager.swift"
-                  timestampString = "574639605.258478"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "25">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Models/ComicModels/ComicManager.swift"
-            timestampString = "574639597.9934191"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "getComicsFromAPI(heroID:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Models/CharacterModels/MarvelAPIManager.swift"
-            timestampString = "574639603.822873"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "fetch(entityToDecode:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Models/CharacterModels/MarvelAPIManager.swift"
-            timestampString = "574639605.5108989"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "fetch(entityToDecode:completion:)"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

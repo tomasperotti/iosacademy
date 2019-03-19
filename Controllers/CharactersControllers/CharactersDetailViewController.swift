@@ -14,7 +14,7 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
     
     var hero : Character!
     var string : Any?
-    var comicListFromHero : [Comic]!
+    var comicListFromHero : [Comic] = []
     
     @IBOutlet weak var heroCollectionView: UICollectionView!
     @IBOutlet weak var heroIDLabel: UILabel!
@@ -39,6 +39,7 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
         
         ComicManager.getComicsFromAPI(heroID: hero.id) { (comicList) in
             self.comicListFromHero = comicList
+            self.heroCollectionView.reloadData()
         }
         
 
@@ -103,7 +104,7 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        
-        return  comicListFromHero.count
+        return comicListFromHero.count
    
     }
     

@@ -26,30 +26,22 @@ class ComicManager {
             
         } else {
             
-            let buildURL = "https://gateway.marvel.com:443/v1/public/comics" + "/\(heroID)"+MarvelAPIHandler.PUBLIC_PRIVATE_KEY
+            //https://gateway.marvel.com:443/v1/public/characters/1011334/comics?apikey=49ebc28ad0354cc1d400f4770c79a818
+
+            let buildURL = "https://gateway.marvel.com:443/v1/public/characters" + "/\(heroID)/comics"+MarvelAPIHandler.PUBLIC_PRIVATE_KEY
             urlToExecute = URL (string: buildURL )
             
         }
         
         // MARK: - TOIMP: usar solo 1 metodo que devuelva la lista de comics
         
-        MarvelAPIManager.fetchFromAPI(urlToExecute, entityToDecode: "ComicsResponse") {
-            
-            print("Entra en comic manager")
-            
-            // MARK: --- TOFIX: No se deberia usar un sleep!!!
-            
-            sleep(5)
-            
-            let couldGetComicsList = MarvelAPIManager.fetch(entityToDecode: "ComicsResponse") { (setComics) in
+        MarvelAPIManager.fetchFromAPI(urlToExecute, entityToDecode: ComicsResponse.self) { response in
+
+            let couldGetComicsList = MarvelAPIManager.fetch(entityToDecode: .ComicsResponse) { (setComics) in
                 let comicList = MarvelAPIManager.convertSetToArray(set: setComics) as! [Comic]
                 completion(comicList)
             }
-            
-            if couldGetComicsList {
-                print("Pudo obtener la lista de comics")
-            }
-            
+ 
         }
   
     }

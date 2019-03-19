@@ -16,7 +16,7 @@ class MarvelAPIManager {
   
     /* You have to select your entity to decode: CharactersResponse or ComicsResponse
      */
-    static func fetchFromAPI (_ urlToExecute: URL?, entityToDecode: String, completion: () -> ()) {
+    static func fetchFromAPI<T:Decodable>(_ urlToExecute: URL?, entityToDecode: T.Type, completion: @escaping (T) -> ()) {
         
         /**
          Primero necesitamos acceder al contexto.
@@ -24,7 +24,7 @@ class MarvelAPIManager {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        
+
         guard let urlToExecute = urlToExecute else {
             return
         }
@@ -41,42 +41,46 @@ class MarvelAPIManager {
             (data, response, error) in
             
             guard let validData = data else {
-                print("Se fue, error obteniendo de API")
                 return
             }
             do {
-                print("Entro a fetch from API con \(entityToDecode)")
+                
                 /** Parseamos la data */
                 let decoder = JSONDecoder()
                 /** Seteamos la referencia al context */
                 decoder.userInfo[CodingUserInfoKey.context!] = context
-                
+                let charResponse: T = try decoder.decode(T.self, from: validData)
                 /**
                  Una vez que ya tenemos la referencia al context, podemos decodear.
                  Al momento de decodear, se van a ir llamando todos los init(from Decoder...) de nuestros modelos,
                  cada init va metiendo entidades en el context
                  */
-                switch entityToDecode {
-                    
-                    case "CharactersResponse" :
-                            let charResponse: CharactersResponse = try decoder.decode(CharactersResponse.self, from: validData)
-                            print("TODO VINO OKA en characters! ::: \(charResponse.data.results.first)")
-                    
-                    
-                    case "ComicsResponse" :
-                            let comicResponse: ComicsResponse = try decoder.decode(ComicsResponse.self, from: validData)
-                            print("TODO VINO OK en comics! ::: \(comicResponse.data.results.first)")
-                    
-                    
-                    default :
-                            print("Not valid entity to decode!! You can use: Characters or Comics")
-                }
-                
+//                switch entityToDecode {
+//                    
+//                    case "CharactersResponse" :
+//                            let charResponse: CharactersResponse = try decoder.decode(CharactersResponse.self, from: validData)
+//                            print("TODO VINO OKA en characters! ::: \(charResponse.data.results.first)")
+//                    
+//                    
+//                    case "ComicsResponse" :
+//                            let comicResponse: ComicsResponse = try decoder.decode(ComicsResponse.self, from: validData)
+//                            print("TODO VINO OK en comics! ::: \(comicResponse.data.results.first)")
+//                    
+//                    
+//                    default :
+//                            print("Not valid entity to decode!! You can use: Characters or Comics")
+//                }
+//                
                 /**
                  Ya con el contexto cargado de todas nuestras entidades, llamamos a .save() para
                  efectivamente guardar los registros a nuestra base
                  */
+                delete(context: context, onlyFirstValue: false)
                 try context.save()
+                
+                DispatchQueue.main.async {
+                    completion(charResponse)
+                }
                 
                 
                 
@@ -93,7 +97,7 @@ class MarvelAPIManager {
          */
         dataTask.resume()
         
-        completion()
+        
         
     }
     
@@ -113,20 +117,18 @@ class MarvelAPIManager {
      Ejecuta una query para obtener una lista de objetos Characters o Comics que tengamos almacenada
      en nuestra base.
      */
-    static func fetch(entityToDecode: String, completion: (Set<NSManagedObject>?) -> Void) -> Bool {
+    static func fetch(entityToDecode: ModelEntities, completion: (Set<NSManagedObject>?) -> Void) -> Bool {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        
-        print("Entro a fetch local con \(entityToDecode)")
-        
+        let modelNameAsString = entityToDecode.rawValue
         switch entityToDecode {
            
-            case "CharactersResponse" :
+            case .CharactersResponse :
                 
                 do {
                     
-                    let fetchRequest = NSFetchRequest<CharactersResponse>(entityName: "CharactersResponse")
+                    let fetchRequest = NSFetchRequest<CharactersResponse>(entityName: modelNameAsString)
                     // MARK: -TOSEE:  Devuelve solo la primera response con una lista de heroes
                     let charResponseList = try context.fetch(fetchRequest)
                     completion(charResponseList[0].data.results)
@@ -141,11 +143,11 @@ class MarvelAPIManager {
                 
             
 
-            case "ComicsResponse":
+            case .ComicsResponse:
                
                 do {
                     
-                    let fetchRequest = NSFetchRequest<ComicsResponse>(entityName: "ComicsResponse")
+                    let fetchRequest = NSFetchRequest<ComicsResponse>(entityName: modelNameAsString)
                     let comicResponseList = try context.fetch(fetchRequest)
                     completion(comicResponseList[0].data.results)
                     

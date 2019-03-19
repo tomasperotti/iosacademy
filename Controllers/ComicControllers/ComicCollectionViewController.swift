@@ -31,7 +31,7 @@ class ComicCollectionViewController: UIViewController {
         // MARK: TOFIX: get comic list
         
         ComicManager.getComicsFromAPI(completion: { (comicList) in
-           print("Entro a comic collection")
+     
             self.comicList = comicList
             self.comicCollectionView.reloadData()
             

@@ -9,6 +9,13 @@
 import Foundation
 import CoreData
 
+enum ModelEntities: String {
+    case Characters
+    case CharactersResponse
+    case ComicsResponse
+}
+
+
 /**
  Necesitamos definir una CodingUserInfoKey nueva para poder guardar nuestro context en el decoder.
  Entonces declaramos una extension de CodingUserInfoKey y una key nueva estatica

@@ -21,8 +21,7 @@ class CharactersModalViewController: UIViewController {
         super.viewDidLoad()
         
         heroImageView.image = imageHeroView
-        
-        // Do any additional setup after loading the view.
+ 
     }
     
 }

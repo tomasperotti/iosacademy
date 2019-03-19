@@ -69,13 +69,8 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
         
         managerSuperhero.getHeroes { (characterList) in
             self.arrayHeroes = characterList
-            self.heroTableView.reloadData()
+            self.heroTableView.reloadData()    
         }
-        /*managerSuperhero.getHeroesFromAPI { (arrayHeroesFromManager) in
-         
-            /*self.arrayHeroes = arrayHeroesFromManager
-            self.heroTableView.reloadData()*/
-        }*/
 
     }
     
