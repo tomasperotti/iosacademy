@@ -30,8 +30,11 @@ class ComicCollectionViewController: UIViewController {
 
         ComicManager.getComicsFromAPI(completion: { (comicList) in
      
-            self.comicList = comicList
-            self.comicCollectionView.reloadData()
+            DispatchQueue.main.async {
+                self.comicList = comicList
+                self.comicCollectionView.reloadData()
+            }
+            
             
         })
    

@@ -36,8 +36,12 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
         heroImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
         
         ComicManager.getComicsFromAPI(heroID: hero.id) { (comicList) in
-            self.comicListFromHero = comicList
-            self.heroCollectionView.reloadData()
+            
+            DispatchQueue.main.async {
+                self.comicListFromHero = comicList
+                self.heroCollectionView.reloadData()
+            }
+            
         }
         
 

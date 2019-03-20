@@ -19,7 +19,7 @@ class TabComicDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupNavBar()
         let image = comic.thumbnail.path + "." + comic.thumbnail.ext
         
         detailComicImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
@@ -35,6 +35,15 @@ class TabComicDetailViewController: UIViewController {
             descriptionComicTextField.text = "No description available."
         }
 
+    }
+    
+    func setupNavBar() {
+        let image = UIImageView(image: UIImage(named: "marvelBar"))
+        image.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        image.contentMode = .scaleAspectFit
+        navigationItem.titleView = image
+        navigationController?.navigationBar.prefersLargeTitles = true
+        definesPresentationContext = true
     }
     
 }

@@ -47,9 +47,10 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
 
         // Setting ImageVIew
         let image = hero.thumbnail.path + "." + hero.thumbnail.ext
-
-        cell.imageView?.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
- 
+        
+        cell.roundHeroCellImageView()
+       
+        cell.heroCellImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
 
         return cell
     }
@@ -61,18 +62,28 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
         setupNavBar()
 
         managerSuperhero.getHeroes { (characterList) in
-            self.arrayHeroes = characterList
-            self.heroTableView.reloadData()    
+           
+            DispatchQueue.main.async {
+                self.arrayHeroes = characterList
+                self.heroTableView.reloadData()
+            }
+            
         }
 
     }
     
     func setupNavBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        let image = UIImageView(image: UIImage(named: "marvelBar"))
+        image.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        image.contentMode = .scaleAspectFit
+        navigationItem.titleView = image
+        navigationController?.navigationBar.prefersLargeTitles = false
         searchController = UISearchController(searchResultsController: nil)
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController?.searchResultsUpdater = self
         searchController?.obscuresBackgroundDuringPresentation = false
+        searchController?.searchBar.backgroundColor = UIColor.white
+        searchController?.searchBar.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         searchController?.searchBar.placeholder = "Search superheroes"
         navigationItem.searchController = searchController
         definesPresentationContext = true
@@ -116,8 +127,10 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
                 // MARK: TODO: Setear alguna label con no results
             }
         }
+        DispatchQueue.main.async {
+            self.heroTableView.reloadData()
+        }
         
-        heroTableView.reloadData()
     }
     
     func isFiltering() -> Bool {

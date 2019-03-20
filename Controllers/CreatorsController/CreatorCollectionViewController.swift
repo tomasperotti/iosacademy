@@ -29,9 +29,10 @@ class CreatorCollectionViewController: UIViewController {
         self.creatorCollectionView.collectionViewLayout = layout
         
         CreatorManager.getCreatorsFromAPI(completion: { (creatorList) in
-            self.creatorList = creatorList
-            self.creatorCollectionView.reloadData()
-            
+            DispatchQueue.main.async {
+                self.creatorList = creatorList
+                self.creatorCollectionView.reloadData()
+            }
         })
         
         // Do any additional setup after loading the view.
