@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class ComicDetailViewController: UIViewController {
+class CharactersComicDetailViewController: UIViewController {
 
     
     @IBOutlet weak var idComicLabel: UILabel!
@@ -30,7 +30,7 @@ class ComicDetailViewController: UIViewController {
         titleComicLabel.text = heroComic.title
         
         let image = heroComic.thumbnail.path + "." + heroComic.thumbnail.ext
-        
+
         comicImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
         
         // MARK: TOFIX: no muestra description en UI

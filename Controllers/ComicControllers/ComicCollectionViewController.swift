@@ -27,17 +27,8 @@ class ComicCollectionViewController: UIViewController {
         layout.minimumInteritemSpacing = 2
         layout.minimumLineSpacing = 2
         self.comicCollectionView.collectionViewLayout = layout
-
-        ComicManager.getComicsFromAPI(completion: { (comicList) in
-     
-            DispatchQueue.main.async {
-                self.comicList = comicList
-                self.comicCollectionView.reloadData()
-            }
-            
-            
-        })
-   
+        
+        getComicsAndDisplay()
         // Do any additional setup after loading the view.
     }
     
@@ -55,9 +46,27 @@ class ComicCollectionViewController: UIViewController {
         
     }
     
+    func getComicsAndDisplay() {
+        
+        ComicManager.getComicsFromAPI(completion: { [weak self] (comicList) in
+            
+            guard let uSelf = self else {
+                return
+            }
+            DispatchQueue.main.async {
+                uSelf.comicList = comicList
+                uSelf.comicCollectionView.reloadData()
+            }
+            
+            
+        })
+        
+    }
     
 
 }
+
+
 
 extension ComicCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -94,6 +103,12 @@ extension ComicCollectionViewController : UICollectionViewDataSource, UICollecti
         
     }
     
-    
+}
+
+extension ComicCollectionViewController : CanBeRefreshed {
+   
+    func refresh() {
+        getComicsAndDisplay()
+    }
     
 }

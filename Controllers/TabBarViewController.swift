@@ -8,6 +8,8 @@
 
 import UIKit
 
+/** This class is used to identify the last Tab Bar Item selected in the last login of the user.
+ */
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     let selectedTabIndexKey = "selectedTabIndex"
     

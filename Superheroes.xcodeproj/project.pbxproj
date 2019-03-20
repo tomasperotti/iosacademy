@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1043701EF07ECBE676EA636B /* Pods_SuperheroesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D23831B61154455F1AF9B1 /* Pods_SuperheroesTests.framework */; };
-		8B00E16F222FEEE600FFF32E /* ComicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00E16E222FEEE600FFF32E /* ComicDetailViewController.swift */; };
+		8B00E16F222FEEE600FFF32E /* CharactersComicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00E16E222FEEE600FFF32E /* CharactersComicDetailViewController.swift */; };
 		8B0DE102223C4BCD00FE42EB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE100223C4BCD00FE42EB /* Model.xcdatamodeld */; };
 		8B11179F2238259000B8BFDE /* ComicStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B11179D2238259000B8BFDE /* ComicStoryboard.storyboard */; };
 		8B1117A4223828BD00B8BFDE /* CharacterWikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1117A3223828BD00B8BFDE /* CharacterWikiViewController.swift */; };
@@ -44,6 +44,10 @@
 		8B91B4FC2227241B00807E4D /* CharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91B4FB2227241B00807E4D /* CharactersTableViewController.swift */; };
 		8B91CE8D22314F1C003E1C00 /* MarvelAPIKeysHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91CE8C22314F1C003E1C00 /* MarvelAPIKeysHandler.swift */; };
 		8B93DF3F2231A38D006DE902 /* CharacterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B93DF3E2231A38D006DE902 /* CharacterManager.swift */; };
+		8B95341C2242A8EA00263AAD /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B95341B2242A8EA00263AAD /* RoundedButton.swift */; };
+		8B95341F2242ABE800263AAD /* RoundedCornersImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B95341E2242ABE800263AAD /* RoundedCornersImageView.swift */; };
+		8B9534212242AD2600263AAD /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9534202242AD2600263AAD /* CircleImageView.swift */; };
+		8B9534232242E26800263AAD /* CanBeRefreshed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9534222242E26800263AAD /* CanBeRefreshed.swift */; };
 		8B9F0DA822329D5D009E4E2C /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F0DA722329D5D009E4E2C /* NetworkingClient.swift */; };
 		8BC3857A224137D200B18BB4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC38579224137D200B18BB4 /* TabBarViewController.swift */; };
 		8BC3857C22415B8B00B18BB4 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3857B22415B8B00B18BB4 /* NetworkingManager.swift */; };
@@ -79,7 +83,7 @@
 		5424EA3428EFDF709149C916 /* Pods_Superheroes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Superheroes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A756AAD6C22CD9C03D3EA11 /* Pods-Superheroes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Superheroes.release.xcconfig"; path = "Target Support Files/Pods-Superheroes/Pods-Superheroes.release.xcconfig"; sourceTree = "<group>"; };
 		77D23831B61154455F1AF9B1 /* Pods_SuperheroesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperheroesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B00E16E222FEEE600FFF32E /* ComicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailViewController.swift; sourceTree = "<group>"; };
+		8B00E16E222FEEE600FFF32E /* CharactersComicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersComicDetailViewController.swift; sourceTree = "<group>"; };
 		8B0DE101223C4BCD00FE42EB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8B11179E2238259000B8BFDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ComicStoryboard.storyboard; sourceTree = "<group>"; };
 		8B1117A3223828BD00B8BFDE /* CharacterWikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterWikiViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +125,10 @@
 		8B91B4FB2227241B00807E4D /* CharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewController.swift; sourceTree = "<group>"; };
 		8B91CE8C22314F1C003E1C00 /* MarvelAPIKeysHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIKeysHandler.swift; sourceTree = "<group>"; };
 		8B93DF3E2231A38D006DE902 /* CharacterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterManager.swift; sourceTree = "<group>"; };
+		8B95341B2242A8EA00263AAD /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		8B95341E2242ABE800263AAD /* RoundedCornersImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersImageView.swift; sourceTree = "<group>"; };
+		8B9534202242AD2600263AAD /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		8B9534222242E26800263AAD /* CanBeRefreshed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanBeRefreshed.swift; sourceTree = "<group>"; };
 		8B9F0DA722329D5D009E4E2C /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
 		8BC38579224137D200B18BB4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		8BC3857B22415B8B00B18BB4 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -199,7 +207,7 @@
 				8B91B4FB2227241B00807E4D /* CharactersTableViewController.swift */,
 				8BE2728A22295E5A00B1F43E /* CharactersModalViewController.swift */,
 				8B4E23392229CA4B0037249F /* CharacterCollectionViewCell.swift */,
-				8B00E16E222FEEE600FFF32E /* ComicDetailViewController.swift */,
+				8B00E16E222FEEE600FFF32E /* CharactersComicDetailViewController.swift */,
 				8B1117A3223828BD00B8BFDE /* CharacterWikiViewController.swift */,
 			);
 			path = CharactersControllers;
@@ -282,9 +290,11 @@
 		8B91B4AC22271E2B00807E4D = {
 			isa = PBXGroup;
 			children = (
+				8B95341D2242AB0100263AAD /* UIComponents */,
 				8B606DE6223BDBDA00AD9048 /* XIBs */,
 				8B8E2702223979070067FA9D /* Models */,
 				8BB2E1D92237EF69007E6C4F /* Storyboards */,
+				8B91B4C122271E2C00807E4D /* LaunchScreen.storyboard */,
 				8B91B4E822271F9F00807E4D /* Controllers */,
 				8B91B4B722271E2B00807E4D /* Superheroes */,
 				8B91B4CC22271E2C00807E4D /* SuperheroesTests */,
@@ -341,8 +351,19 @@
 				8B8E26E02239363B0067FA9D /* ComicControllers */,
 				8B8E26DF223936230067FA9D /* CharactersControllers */,
 				8BC38579224137D200B18BB4 /* TabBarViewController.swift */,
+				8B9534222242E26800263AAD /* CanBeRefreshed.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8B95341D2242AB0100263AAD /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				8B95341B2242A8EA00263AAD /* RoundedButton.swift */,
+				8B95341E2242ABE800263AAD /* RoundedCornersImageView.swift */,
+				8B9534202242AD2600263AAD /* CircleImageView.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		8BB2E1D92237EF69007E6C4F /* Storyboards */ = {
@@ -352,7 +373,6 @@
 				8B1117A722384B7800B8BFDE /* CreatorStoryboard.storyboard */,
 				8B11179D2238259000B8BFDE /* ComicStoryboard.storyboard */,
 				8B91B4BC22271E2B00807E4D /* Main.storyboard */,
-				8B91B4C122271E2C00807E4D /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -451,6 +471,9 @@
 					8B91B4B422271E2B00807E4D = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -624,6 +647,7 @@
 				8B8E26FA223976460067FA9D /* CreatorDetailViewController.swift in Sources */,
 				8B8E26EC223951E60067FA9D /* ComicManager.swift in Sources */,
 				8B91B4BB22271E2B00807E4D /* CharactersDetailViewController.swift in Sources */,
+				8B9534232242E26800263AAD /* CanBeRefreshed.swift in Sources */,
 				8B4E233A2229CA4B0037249F /* CharacterCollectionViewCell.swift in Sources */,
 				8B93DF3F2231A38D006DE902 /* CharacterManager.swift in Sources */,
 				8B8E26F8223976320067FA9D /* CreatorCollectionViewController.swift in Sources */,
@@ -637,17 +661,20 @@
 				8B8E27012239783D0067FA9D /* CreatorJSONParser.swift in Sources */,
 				8B1117A4223828BD00B8BFDE /* CharacterWikiViewController.swift in Sources */,
 				8BC3857E22415C1000B18BB4 /* DecodableParser.swift in Sources */,
-				8B00E16F222FEEE600FFF32E /* ComicDetailViewController.swift in Sources */,
+				8B00E16F222FEEE600FFF32E /* CharactersComicDetailViewController.swift in Sources */,
 				8B91B4B922271E2B00807E4D /* AppDelegate.swift in Sources */,
 				8B8E270422398CC10067FA9D /* CreatorCollectionViewCell.swift in Sources */,
 				8B91CE8D22314F1C003E1C00 /* MarvelAPIKeysHandler.swift in Sources */,
 				8B0DE102223C4BCD00FE42EB /* Model.xcdatamodeld in Sources */,
 				8B8E26E22239389D0067FA9D /* ComicCollectionViewController.swift in Sources */,
+				8B9534212242AD2600263AAD /* CircleImageView.swift in Sources */,
 				8B8E26FF223978080067FA9D /* CreatorManager.swift in Sources */,
 				8B8E26E822393CD60067FA9D /* ComicCollectionViewCell.swift in Sources */,
 				8BC3857C22415B8B00B18BB4 /* NetworkingManager.swift in Sources */,
+				8B95341F2242ABE800263AAD /* RoundedCornersImageView.swift in Sources */,
 				8B535B1322287B80003E7CB0 /* CharacterCell.swift in Sources */,
 				8B91B4FC2227241B00807E4D /* CharactersTableViewController.swift in Sources */,
+				8B95341C2242A8EA00263AAD /* RoundedButton.swift in Sources */,
 				8B8E2710223A84AC0067FA9D /* StoreMapViewController.swift in Sources */,
 				8B606DEB223BDCB100AD9048 /* DatePickerViewController.swift in Sources */,
 				8B91B4EA22271FEA00807E4D /* Character.swift in Sources */,

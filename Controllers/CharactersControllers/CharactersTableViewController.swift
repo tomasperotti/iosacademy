@@ -13,6 +13,7 @@ import Foundation
 import SDWebImage
 import UserNotifications
 
+
 class CharactersTableViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var heroTableView: UITableView!
@@ -47,9 +48,7 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
 
         // Setting ImageVIew
         let image = hero.thumbnail.path + "." + hero.thumbnail.ext
-        
-        cell.roundHeroCellImageView()
-       
+
         cell.heroCellImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
 
         return cell
@@ -60,16 +59,26 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
         super.viewDidLoad()
        
         setupNavBar()
+        updateDataFromTableView()
+        
 
-        managerSuperhero.getHeroes { (characterList) in
-           
+    }
+    
+    func updateDataFromTableView () {
+        
+        managerSuperhero.getHeroes { [weak self] (characterList) in
+            
+            guard let uSelf = self else {
+                return
+            }
+            
             DispatchQueue.main.async {
-                self.arrayHeroes = characterList
-                self.heroTableView.reloadData()
+                uSelf.arrayHeroes = characterList
+                uSelf.heroTableView.reloadData()
             }
             
         }
-
+        
     }
     
     func setupNavBar() {
@@ -271,6 +280,13 @@ extension CharactersTableViewController : DatePickerViewDelegate {
         calculateNotification()
     }
   
+}
+
+extension CharactersTableViewController : CanBeRefreshed {
+    func refresh() {
+        updateDataFromTableView()
+        print(arrayHeroes)
+    }
 }
 
 
