@@ -49,7 +49,12 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
         // Setting ImageVIew
         let image = hero.thumbnail.path + "." + hero.thumbnail.ext
 
-        cell.heroCellImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
+        if image != "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg" {
+             cell.heroCellImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
+            
+        } else {
+            cell.heroCellImageView.image = UIImage(named: "death")
+        }
 
         return cell
     }

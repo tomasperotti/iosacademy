@@ -46,7 +46,7 @@
                             </scrollView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tZ9-Hv-cou">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0Ng-yX-9Vw">
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -61,12 +61,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mIg-My-gQm">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mIg-My-gQm" customClass="RoundedCornersImageView" customModule="Superheroes" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="mIg-My-gQm" secondAttribute="trailing" id="1hv-WP-REW"/>
                                             <constraint firstItem="mIg-My-gQm" firstAttribute="top" secondItem="fHe-qh-knI" secondAttribute="top" id="Oam-bQ-km6"/>
@@ -74,7 +74,7 @@
                                             <constraint firstItem="mIg-My-gQm" firstAttribute="leading" secondItem="fHe-qh-knI" secondAttribute="leading" id="pFM-np-cPf"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="ComicImageView" destination="mIg-My-gQm" id="ecL-bv-CC3"/>
+                                            <outlet property="comicImageView" destination="mIg-My-gQm" id="AMZ-PJ-RNU"/>
                                             <segue destination="jbM-vC-Uuh" kind="show" id="ntN-DD-Zbc"/>
                                         </connections>
                                     </collectionViewCell>
@@ -100,17 +100,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Comics" id="o0e-8a-7Zb"/>
                     <connections>
-                        <outlet property="comicCollectionView" destination="tZ9-Hv-cou" id="3aA-L6-0Dn"/>
+                        <outlet property="comicCollectionView" destination="tZ9-Hv-cou" id="maA-b5-tKa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAJ-Zd-ZhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-127.2" y="-269.41529235382313"/>
         </scene>
-        <!--Tab Comic Detail View Controller-->
+        <!--Comic Detail View Controller-->
         <scene sceneID="AVR-oh-OAt">
             <objects>
-                <viewController id="jbM-vC-Uuh" customClass="TabComicDetailViewController" customModule="Superheroes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jbM-vC-Uuh" customClass="ComicDetailViewController" customModule="Superheroes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y3f-Ql-kIY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
