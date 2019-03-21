@@ -12,39 +12,56 @@ import SDWebImage
 
 class CharactersDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var hero : Character?
+    var hero : Character!
     var string : Any?
+    var comicListFromHero : [Comic] = []
     
     @IBOutlet weak var heroCollectionView: UICollectionView!
     @IBOutlet weak var heroIDLabel: UILabel!
     @IBOutlet weak var heroNameLabel: UILabel!
     @IBOutlet weak var heroDescLabel: UILabel!
     @IBOutlet var heroImageView: UIImageView!
-       
+    @IBOutlet weak var seeTrailerButton: UIButton!
+    @IBOutlet weak var goToWikiButton: UIButton!
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        setCharacterDetailLayout()
+        getComicsAndDisplayThem()
+        
         // Do any additional setup after loading the view, typically from a nib.
-        heroNameLabel.text = hero?.name
-        if let heroID = hero?.id {
-            heroIDLabel.text = String(heroID)
-        }
+    }
+    
+    private func setCharacterDetailLayout () {
+       
+        heroNameLabel.text = hero.name
+        heroIDLabel.text = String(hero.id)
+        heroDescLabel.text = hero.heroDescription
         
-        heroDescLabel.text = hero?.description
-        if let imageFromURL = hero?.imageName {
-            heroImageView.sd_setImage(with:  URL(string: imageFromURL.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
-        }
+        let image = hero.thumbnail.path + "." + hero.thumbnail.ext
         
-        if let idHero = hero?.id {
-            HeroJSONParser.parseComics(heroID: idHero) { (comicList) in
-                self.hero?.comic = comicList
-                self.heroCollectionView.reloadData()
+        heroImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
+          
+    }
+    
+    private func getComicsAndDisplayThem () {
+        
+        
+        ComicManager.getComicsFromAPI(heroID: hero.id) { [weak self ] (comicList) in
+            
+            guard let uSelf = self else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                uSelf.comicListFromHero = comicList
+                uSelf.heroCollectionView.reloadData()
             }
             
         }
 
-  
     }
-    
     
     @IBAction func goToWiki(_ sender: Any) {
         
@@ -76,40 +93,50 @@ class CharactersDetailViewController: UIViewController, UICollectionViewDelegate
             
         } else {
           
-            if let dest = segue.destination as? ComicDetailViewController {
-                
-                print(sender.debugDescription)
+            if let dest = segue.destination as? CharactersComicDetailViewController {
                 
                 if let s = sender as? CharacterCollectionViewCell {
-                    
+
                     if let index = heroCollectionView.indexPath(for: s)?.row {
-                       dest.heroComic = hero?.comic?[index] ?? nil
+                       dest.heroComic = comicListFromHero[index]
                     }
-             
+                    
                 }
             }
-            
             else {
-                if let dest = segue.destination as? CharacterWikiViewController {
-                    dest.hero = self.hero
-                }
+                    if let dest = segue.destination as? CharacterWikiViewController {
+                        dest.hero = self.hero
+                    }
             }
+                
         }
         
-    }
-    
+        }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return hero?.comic?.count ?? 0
+       
+        return comicListFromHero.count
+   
     }
     
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
         let cell = heroCollectionView.dequeueReusableCell(withReuseIdentifier: "heroCollectionCell", for: indexPath) as! CharacterCollectionViewCell
-        cell.heroCollectionLabel.text = hero?.comic?[indexPath.row].title
-    
+        let image = comicListFromHero[indexPath.row].thumbnail.path + "." + comicListFromHero[indexPath.row].thumbnail.ext
+        
+        cell.comicCollectionImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
+        
         return cell
         
+    }
+    
+}
+
+extension CharactersDetailViewController : CanBeRefreshed {
+    
+    func refresh() {
+        getComicsAndDisplayThem()
     }
     
 }

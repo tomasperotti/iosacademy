@@ -14,9 +14,7 @@ class CreatorCollectionViewController: UIViewController {
     @IBOutlet weak var creatorCollectionView: UICollectionView!
     var creatorList : [Creator] = []
     var creator: Creator?
-    
-    
-    var array = ["apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,30 +29,31 @@ class CreatorCollectionViewController: UIViewController {
         self.creatorCollectionView.collectionViewLayout = layout
         
         CreatorManager.getCreatorsFromAPI(completion: { (creatorList) in
-            self.creatorList = creatorList
-            self.creatorCollectionView.reloadData()
-            
+            DispatchQueue.main.async {
+                self.creatorList = creatorList
+                self.creatorCollectionView.reloadData()
+            }
         })
         
         // Do any additional setup after loading the view.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let destinationView = segue.destination as? CreatorDetailViewController {
+       
+        // MARK: TODO: Implementar segue al detail de creator
+       /* if let destinationView = segue.destination as? CreatorDetailViewController {
             
             if let s = sender as? CreatorCollectionViewCell {
                 if let index = creatorCollectionView.indexPath(for: s)?.row {
-                   // destinationView.creator = creatorList[index]
+                    
+                    // destinationView.creator = creatorList[index]
                 }
             }
             
-        }
+        }*/
         
     }
-    
-    
-    
+
 }
 
 extension CreatorCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate {

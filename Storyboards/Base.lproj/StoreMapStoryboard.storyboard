@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gDG-Y5-wMx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Maps-->
+        <scene sceneID="8BE-eO-A0w">
+            <objects>
+                <navigationController id="gDG-Y5-wMx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Maps" image="mapIcon.png" id="cNq-gE-kyv"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="982-VO-42x">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.024170271520000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XWC-vT-s98" kind="relationship" relationship="rootViewController" id="1pb-8H-cVN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="71H-vZ-LaX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12" y="-270"/>
+        </scene>
+        <!--Maps-->
+        <scene sceneID="uTI-Pg-AVU">
+            <objects>
+                <viewController id="XWC-vT-s98" customClass="StoreMapViewController" customModule="Superheroes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fdz-Ne-Xw1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5Gv-jd-Xlp">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XWC-vT-s98" id="paQ-H8-7Hg"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Gv-jd-Xlp" firstAttribute="top" secondItem="Kqt-gh-uWm" secondAttribute="top" id="SR2-G0-bZY"/>
+                            <constraint firstItem="5Gv-jd-Xlp" firstAttribute="leading" secondItem="Kqt-gh-uWm" secondAttribute="leading" id="l4V-Yc-AuL"/>
+                            <constraint firstItem="5Gv-jd-Xlp" firstAttribute="bottom" secondItem="Kqt-gh-uWm" secondAttribute="bottom" id="vW9-0r-M1i"/>
+                            <constraint firstItem="5Gv-jd-Xlp" firstAttribute="trailing" secondItem="Kqt-gh-uWm" secondAttribute="trailing" id="xjm-q9-HVS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kqt-gh-uWm"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Maps" id="2qe-EC-yQ9"/>
+                    <connections>
+                        <outlet property="storeMapView" destination="5Gv-jd-Xlp" id="diF-sb-6dc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Duj-ch-poF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801" y="-61"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mapIcon.png" width="30" height="30"/>
+    </resources>
+</document>

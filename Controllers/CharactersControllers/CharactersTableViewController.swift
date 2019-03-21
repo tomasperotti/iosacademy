@@ -13,13 +13,14 @@ import Foundation
 import SDWebImage
 import UserNotifications
 
+
 class CharactersTableViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var heroTableView: UITableView!
     var searchController : UISearchController?
     var arrayHeroes : [Character] = []
     var filteredSuperheroes : [Character] = []
-    let managerSuperhero = SuperheroManager()
+    let managerSuperhero = CharacterManager()
     var dateFromPicker : Date?
     var intervalSelectedByUser : Double?
     var indexFromHeroToSchedule : Int?
@@ -33,12 +34,8 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        //CON CELDA CUSTOM
-        
+
         let cell = heroTableView.dequeueReusableCell(withIdentifier: "heroCell", for: indexPath) as! CharacterCell
-       
-        // TODO: Mejorar esta logica para no crear tantos heros
         let hero: Character
         if isFiltering() {
             hero = filteredSuperheroes[indexPath.row]
@@ -48,11 +45,11 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
         cell.heroNameLabel.text = hero.name
         cell.delegate = self
         cell.scheduleButton.tag = indexPath.row
-        
+
         // Setting ImageVIew
-        if let imageFromURL = hero.imageName {
-            cell.imageView?.sd_setImage(with:  URL(string: imageFromURL.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
-        }
+        let image = hero.thumbnail.path + "." + hero.thumbnail.ext
+
+        cell.heroCellImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
 
         return cell
     }
@@ -62,20 +59,40 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
         super.viewDidLoad()
        
         setupNavBar()
+        updateDataFromTableView()
         
-        managerSuperhero.getHeroesFromAPI { (arrayHeroesFromManager) in
-            self.arrayHeroes = arrayHeroesFromManager
-            self.heroTableView.reloadData()
-        }
 
     }
     
+    func updateDataFromTableView () {
+        
+        managerSuperhero.getHeroes { [weak self] (characterList) in
+            
+            guard let uSelf = self else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                uSelf.arrayHeroes = characterList
+                uSelf.heroTableView.reloadData()
+            }
+            
+        }
+        
+    }
+    
     func setupNavBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        let image = UIImageView(image: UIImage(named: "marvelBar"))
+        image.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        image.contentMode = .scaleAspectFit
+        navigationItem.titleView = image
+        navigationController?.navigationBar.prefersLargeTitles = false
         searchController = UISearchController(searchResultsController: nil)
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController?.searchResultsUpdater = self
         searchController?.obscuresBackgroundDuringPresentation = false
+        searchController?.searchBar.backgroundColor = UIColor.white
+        searchController?.searchBar.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         searchController?.searchBar.placeholder = "Search superheroes"
         navigationItem.searchController = searchController
         definesPresentationContext = true
@@ -112,15 +129,17 @@ class CharactersTableViewController : UIViewController, UITableViewDataSource, U
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         
 
-        SuperheroManager().searchSuperheroes(nameWith: searchText) { (fSuperheroes, success, message) in
+        CharacterManager().searchSuperheroes(nameWith: searchText) { (fSuperheroes, success, message) in
             if (success == true) {
                 self.filteredSuperheroes = fSuperheroes ?? []
             } else {
-                // TODO: Setear alguna label con no results
+                // MARK: TODO: Setear alguna label con no results
             }
         }
+        DispatchQueue.main.async {
+            self.heroTableView.reloadData()
+        }
         
-        heroTableView.reloadData()
     }
     
     func isFiltering() -> Bool {
@@ -169,7 +188,7 @@ extension CharactersTableViewController : CharacterCellDelegate {
             
             // Create the notification title and body
             let content = UNMutableNotificationContent()
-            content.title = "Hey it's time to see your superhero \(self.arrayHeroes[indexFromHeroToSchedule!].name!)!"
+            content.title = "Hey it's time to see your superhero \(self.arrayHeroes[indexFromHeroToSchedule!].name)!"
             content.body = "Look at me!"
             
             var dateComponents = DateComponents()
@@ -261,6 +280,13 @@ extension CharactersTableViewController : DatePickerViewDelegate {
         calculateNotification()
     }
   
+}
+
+extension CharactersTableViewController : CanBeRefreshed {
+    func refresh() {
+        updateDataFromTableView()
+        print(arrayHeroes)
+    }
 }
 
 

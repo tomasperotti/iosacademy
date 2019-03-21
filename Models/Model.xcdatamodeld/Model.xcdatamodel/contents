@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Character" representedClassName=".Character" syncable="YES">
+        <attribute name="heroDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Thumbnail" syncable="YES"/>
+        <relationship name="urls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="URLs" syncable="YES"/>
+    </entity>
+    <entity name="CharactersData" representedClassName=".CharactersData" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="results" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" syncable="YES"/>
+    </entity>
+    <entity name="CharactersResponse" representedClassName=".CharactersResponse" syncable="YES">
+        <relationship name="data" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharactersData" syncable="YES"/>
+    </entity>
+    <entity name="Comic" representedClassName=".Comic" syncable="YES">
+        <attribute name="comicDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Thumbnail" syncable="YES"/>
+    </entity>
+    <entity name="ComicsData" representedClassName=".ComicsData" syncable="YES">
+        <relationship name="results" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comic" syncable="YES"/>
+    </entity>
+    <entity name="ComicsResponse" representedClassName=".ComicsResponse" syncable="YES">
+        <relationship name="data" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ComicsData" syncable="YES"/>
+    </entity>
+    <entity name="Thumbnail" representedClassName=".Thumbnail" syncable="YES">
+        <attribute name="ext" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="URLs" representedClassName=".URLs" syncable="YES">
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Character" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="CharactersData" positionX="-54" positionY="18" width="128" height="90"/>
+        <element name="CharactersResponse" positionX="-36" positionY="27" width="128" height="60"/>
+        <element name="Comic" positionX="-18" positionY="63" width="128" height="105"/>
+        <element name="ComicsData" positionX="0" positionY="108" width="128" height="60"/>
+        <element name="ComicsResponse" positionX="-9" positionY="99" width="128" height="60"/>
+        <element name="Thumbnail" positionX="-45" positionY="27" width="128" height="75"/>
+        <element name="URLs" positionX="-18" positionY="36" width="128" height="75"/>
+    </elements>
+</model>

@@ -16,9 +16,6 @@ class ComicCollectionViewController: UIViewController {
     var comicList : [Comic] = []
     var comic : Comic?
     
-    
-    var array = ["apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -31,12 +28,7 @@ class ComicCollectionViewController: UIViewController {
         layout.minimumLineSpacing = 2
         self.comicCollectionView.collectionViewLayout = layout
         
-        ComicManager.getComicsFromAPI(completion: { (comicList) in
-            self.comicList = comicList
-            self.comicCollectionView.reloadData()
-            
-        })
-   
+        getComicsAndDisplay()
         // Do any additional setup after loading the view.
     }
     
@@ -54,9 +46,27 @@ class ComicCollectionViewController: UIViewController {
         
     }
     
+    func getComicsAndDisplay() {
+        
+        ComicManager.getComicsFromAPI(completion: { [weak self] (comicList) in
+            
+            guard let uSelf = self else {
+                return
+            }
+            DispatchQueue.main.async {
+                uSelf.comicList = comicList
+                uSelf.comicCollectionView.reloadData()
+            }
+            
+            
+        })
+        
+    }
     
 
 }
+
+
 
 extension ComicCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -69,10 +79,10 @@ extension ComicCollectionViewController : UICollectionViewDataSource, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as! ComicCollectionViewCell
         
         let newComic = comicList[indexPath.row]
+
+        let image = newComic.thumbnail.path + "." + newComic.thumbnail.ext
         
-        if let comicImageURL = newComic.image {
-                cell.comicImageView.sd_setImage(with:  URL(string: comicImageURL.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
-        }
+        cell.comicImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
           
             cell.layer.borderWidth = 0.5
             cell.layer.borderColor = UIColor.gray.cgColor
@@ -93,6 +103,12 @@ extension ComicCollectionViewController : UICollectionViewDataSource, UICollecti
         
     }
     
-    
+}
+
+extension ComicCollectionViewController : CanBeRefreshed {
+   
+    func refresh() {
+        getComicsAndDisplay()
+    }
     
 }

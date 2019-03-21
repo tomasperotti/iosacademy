@@ -1,5 +1,5 @@
 //
-//  HeroCell.swift
+//  CharacterCell.swift
 //  Superheroes
 //
 //  Created by Tomas Mateo Perotti on 28/02/2019.
@@ -19,11 +19,12 @@ class CharacterCell: UITableViewCell {
     @IBOutlet weak var heroNameLabel: UILabel!
     @IBOutlet weak var heroCellImageView: UIImageView!
     @IBOutlet weak var scheduleButton: UIButton!
-
+    
     @IBAction func scheduleNotification(_ sender: Any) {
         self.delegate?.tapScheduleButton(tag: scheduleButton.tag)
     }
     
 }
+
 
 

@@ -13,5 +13,4 @@ class ComicCollectionViewCell : UICollectionViewCell {
 
     @IBOutlet weak var comicImageView : UIImageView!
 
-    
 }

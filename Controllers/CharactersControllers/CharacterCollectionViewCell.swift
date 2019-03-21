@@ -10,6 +10,7 @@ import UIKit
 
 class CharacterCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var heroCollectionLabel: UILabel!
+    
+    @IBOutlet weak var comicCollectionImageView: UIImageView!
     
 }

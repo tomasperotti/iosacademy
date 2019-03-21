@@ -9,6 +9,8 @@
 import UIKit
 import WebKit
 
+// MARK: TOFIX: falta linkear con coredata
+
 class CharacterWikiViewController: UIViewController {
 
     var hero : Character?
@@ -18,10 +20,9 @@ class CharacterWikiViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        renderWebView { stop in
-            stopActivityIndicator()
-            // hacer algo para parar la request 
-        }
+        heroWikiWebView.uiDelegate = self
+        heroWikiWebView.navigationDelegate = self
+        renderWebView ()
 
         // Do any additional setup after loading the view.
     }
@@ -29,56 +30,65 @@ class CharacterWikiViewController: UIViewController {
     @IBAction func closeHeroWikiModalView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    private func renderWebView (completion: (Any?) -> Void) {
+    
+    private func renderWebView () {
         
-        startActivityIndicator()
+        // MARK: TOFIX - render web view
         
-        if hero?.wikiURL != "" {
+        if  hero?.urls != nil {
             
-            if let urlWikiString =  hero?.wikiURL {
-                
-                let urlWikiStringWithKey = urlWikiString + MarvelAPIHandler.PUBLIC_PRIVATE_KEY
+            let exists = hero!.urls.contains { $0.realType == .wiki }
             
-                if let urlForWebView = URL(string: urlWikiStringWithKey.replacingOccurrences(of: "http", with: "https")) {
+            if exists {
                 
-                    print(urlForWebView)
-                    let requestURLForWebView = URLRequest(url: urlForWebView)
-                    heroWikiWebView.load(requestURLForWebView)
+                let url = hero?.urls.filter({ return $0.realType == .wiki }).first!.url
+                
+                if let url = url {
+                    
+                    let urlWikiStringWithKey = url + MarvelAPIKeysHandler.PUBLIC_PRIVATE_KEY
+                    
+                    if let urlForWebView = URL(string: urlWikiStringWithKey.replacingOccurrences(of: "http", with: "https")) {
+
+                            let requestURLForWebView = URLRequest(url: urlForWebView)
+                            heroWikiWebView.load(requestURLForWebView)
+                        
+                    }
                     
                 }
+                
             }
+
             
         } else {
-            stopActivityIndicator()
             closeButton.backgroundColor = UIColor.black
             closeButton.setTitle("No info, please close", for: UIControl.State.normal)
         }
         
-        
-        
-        
+    }
+
+    
+}
+
+extension CharacterWikiViewController : WKUIDelegate, WKNavigationDelegate {
+    
+    func showActivityIndicator(show: Bool) {
+        if show {
+            activityIndicatorView.startAnimating()
+        } else {
+            activityIndicatorView.stopAnimating()
+        }
     }
     
-    private func startActivityIndicator () {
-        activityIndicatorView.center = self.view.center
-        activityIndicatorView.hidesWhenStopped = true
-    }
-   
-    private func stopActivityIndicator () {
-        activityIndicatorView.stopAnimating()
-        activityIndicatorView.removeFromSuperview()
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        showActivityIndicator(show: false)
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        showActivityIndicator(show: true)
     }
-    */
-
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        showActivityIndicator(show: false)
+    }
+  
 }
