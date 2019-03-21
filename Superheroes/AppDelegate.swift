@@ -12,23 +12,23 @@ import CoreData
 
 enum TabNames: String {
     
-    case Characters
-    case Comics
-    case Creators
-    case Maps
+    case characters
+    case comics
+    case creators
+    case maps
     case unknown
     
     func getIndex() -> Int {
         
         switch self {
             
-        case .Characters :
+        case .characters :
             return 0
-        case .Comics :
+        case .comics :
             return 1
-        case .Creators :
+        case .creators :
             return 2
-        case .Maps :
+        case .maps :
             return 3
         default:
             return -1
@@ -73,16 +73,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
-        let message = url.host?.removingPercentEncoding
-        let alertController = UIAlertController(title: "If you wish, you can select a particular tab.", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
-        alertController.addAction(okAction)
-        
-        window?.rootViewController?.present(alertController, animated: true, completion: nil)
-        
-        
-        if let scheme = url.scheme, scheme.localizedCaseInsensitiveCompare("com.Superheroes") == .orderedSame, let appSection = url.host, let tabEnum = TabNames(rawValue: appSection) {
+
+        if let scheme = url.scheme, scheme.localizedCaseInsensitiveCompare("superheroes") == .orderedSame, let appSection = url.host, let tabEnum = TabNames(rawValue: appSection.lowercased()) {
             
             
             let index = tabEnum.getIndex()
