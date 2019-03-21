@@ -18,6 +18,7 @@
 		8B535B1322287B80003E7CB0 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B535B1222287B80003E7CB0 /* CharacterCell.swift */; };
 		8B606DE8223BDC4100AD9048 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B606DE7223BDC4100AD9048 /* DatePickerViewController.xib */; };
 		8B606DEB223BDCB100AD9048 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B606DEA223BDCB100AD9048 /* DatePickerViewController.swift */; };
+		8B73780F2243DE2600D8A2E2 /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73780E2243DE2600D8A2E2 /* NetworkingClient.swift */; };
 		8B8E26E22239389D0067FA9D /* ComicCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E26E12239389D0067FA9D /* ComicCollectionViewController.swift */; };
 		8B8E26E822393CD60067FA9D /* ComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E26E722393CD60067FA9D /* ComicCollectionViewCell.swift */; };
 		8B8E26EC223951E60067FA9D /* ComicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E26EB223951E60067FA9D /* ComicManager.swift */; };
@@ -48,7 +49,6 @@
 		8B95341F2242ABE800263AAD /* RoundedCornersImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B95341E2242ABE800263AAD /* RoundedCornersImageView.swift */; };
 		8B9534212242AD2600263AAD /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9534202242AD2600263AAD /* CircleImageView.swift */; };
 		8B9534232242E26800263AAD /* CanBeRefreshed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9534222242E26800263AAD /* CanBeRefreshed.swift */; };
-		8B9F0DA822329D5D009E4E2C /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F0DA722329D5D009E4E2C /* NetworkingClient.swift */; };
 		8BC3857A224137D200B18BB4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC38579224137D200B18BB4 /* TabBarViewController.swift */; };
 		8BC3857C22415B8B00B18BB4 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3857B22415B8B00B18BB4 /* NetworkingManager.swift */; };
 		8BC3857E22415C1000B18BB4 /* DecodableParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3857D22415C1000B18BB4 /* DecodableParser.swift */; };
@@ -93,6 +93,7 @@
 		8B535B1222287B80003E7CB0 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		8B606DE7223BDC4100AD9048 /* DatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
 		8B606DEA223BDCB100AD9048 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		8B73780E2243DE2600D8A2E2 /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
 		8B8E26E12239389D0067FA9D /* ComicCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCollectionViewController.swift; sourceTree = "<group>"; };
 		8B8E26E722393CD60067FA9D /* ComicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCollectionViewCell.swift; sourceTree = "<group>"; };
 		8B8E26EB223951E60067FA9D /* ComicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicManager.swift; sourceTree = "<group>"; };
@@ -129,7 +130,6 @@
 		8B95341E2242ABE800263AAD /* RoundedCornersImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersImageView.swift; sourceTree = "<group>"; };
 		8B9534202242AD2600263AAD /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		8B9534222242E26800263AAD /* CanBeRefreshed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanBeRefreshed.swift; sourceTree = "<group>"; };
-		8B9F0DA722329D5D009E4E2C /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
 		8BC38579224137D200B18BB4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		8BC3857B22415B8B00B18BB4 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		8BC3857D22415C1000B18BB4 /* DecodableParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableParser.swift; sourceTree = "<group>"; };
@@ -200,6 +200,46 @@
 			path = ControllersXIB;
 			sourceTree = "<group>";
 		};
+		8B7378102243DE4300D8A2E2 /* ComicsFlow */ = {
+			isa = PBXGroup;
+			children = (
+				8B11179D2238259000B8BFDE /* ComicStoryboard.storyboard */,
+				8B8E26E622393CA60067FA9D /* ComicModels */,
+				8B8E26E02239363B0067FA9D /* ComicControllers */,
+			);
+			path = ComicsFlow;
+			sourceTree = "<group>";
+		};
+		8B7378112243DE8500D8A2E2 /* CharactersFlow */ = {
+			isa = PBXGroup;
+			children = (
+				8B91B4BC22271E2B00807E4D /* Main.storyboard */,
+				8BCFA3382232C896007915F7 /* CharacterModels */,
+				8B8E26DF223936230067FA9D /* CharactersControllers */,
+			);
+			path = CharactersFlow;
+			sourceTree = "<group>";
+		};
+		8B7378122243DEC200D8A2E2 /* MapStoresFlow */ = {
+			isa = PBXGroup;
+			children = (
+				8B8E2707223A80960067FA9D /* StoreMapStoryboard.storyboard */,
+				8B8E2711223A884A0067FA9D /* StoreMapModels */,
+				8B8E270E223A84750067FA9D /* StoreMapControllers */,
+			);
+			path = MapStoresFlow;
+			sourceTree = "<group>";
+		};
+		8B7378132243DEFE00D8A2E2 /* CreatorsFlow */ = {
+			isa = PBXGroup;
+			children = (
+				8B1117A722384B7800B8BFDE /* CreatorStoryboard.storyboard */,
+				8B8E26FB223977780067FA9D /* CreatorsModels */,
+				8B8E26F6223975F10067FA9D /* CreatorsController */,
+			);
+			path = CreatorsFlow;
+			sourceTree = "<group>";
+		};
 		8B8E26DF223936230067FA9D /* CharactersControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,16 +295,12 @@
 		8B8E2702223979070067FA9D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8B8E26FB223977780067FA9D /* CreatorsModels */,
-				8B8E2711223A884A0067FA9D /* StoreMapModels */,
-				8B8E26E622393CA60067FA9D /* ComicModels */,
-				8BCFA3382232C896007915F7 /* CharacterModels */,
 				8B0DE100223C4BCD00FE42EB /* Model.xcdatamodeld */,
 				8BF2C02A22400CA700A0F609 /* MarvelAPIManager.swift */,
 				8B91CE8C22314F1C003E1C00 /* MarvelAPIKeysHandler.swift */,
-				8B9F0DA722329D5D009E4E2C /* NetworkingClient.swift */,
 				8BC3857B22415B8B00B18BB4 /* NetworkingManager.swift */,
 				8BC3857D22415C1000B18BB4 /* DecodableParser.swift */,
+				8B73780E2243DE2600D8A2E2 /* NetworkingClient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,6 +326,10 @@
 		8B91B4AC22271E2B00807E4D = {
 			isa = PBXGroup;
 			children = (
+				8B7378132243DEFE00D8A2E2 /* CreatorsFlow */,
+				8B7378122243DEC200D8A2E2 /* MapStoresFlow */,
+				8B7378112243DE8500D8A2E2 /* CharactersFlow */,
+				8B7378102243DE4300D8A2E2 /* ComicsFlow */,
 				8B95341D2242AB0100263AAD /* UIComponents */,
 				8B606DE6223BDBDA00AD9048 /* XIBs */,
 				8B8E2702223979070067FA9D /* Models */,
@@ -345,10 +385,6 @@
 		8B91B4E822271F9F00807E4D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8B8E270E223A84750067FA9D /* StoreMapControllers */,
-				8B8E26F6223975F10067FA9D /* CreatorsController */,
-				8B8E26E02239363B0067FA9D /* ComicControllers */,
-				8B8E26DF223936230067FA9D /* CharactersControllers */,
 				8BC38579224137D200B18BB4 /* TabBarViewController.swift */,
 				8B9534222242E26800263AAD /* CanBeRefreshed.swift */,
 			);
@@ -368,10 +404,6 @@
 		8BB2E1D92237EF69007E6C4F /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				8B8E2707223A80960067FA9D /* StoreMapStoryboard.storyboard */,
-				8B1117A722384B7800B8BFDE /* CreatorStoryboard.storyboard */,
-				8B11179D2238259000B8BFDE /* ComicStoryboard.storyboard */,
-				8B91B4BC22271E2B00807E4D /* Main.storyboard */,
 				8B91B4C122271E2C00807E4D /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -643,7 +675,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B9F0DA822329D5D009E4E2C /* NetworkingClient.swift in Sources */,
 				8B8E26FA223976460067FA9D /* CreatorDetailViewController.swift in Sources */,
 				8B8E26EC223951E60067FA9D /* ComicManager.swift in Sources */,
 				8B91B4BB22271E2B00807E4D /* CharactersDetailViewController.swift in Sources */,
@@ -664,6 +695,7 @@
 				8B00E16F222FEEE600FFF32E /* CharactersComicDetailViewController.swift in Sources */,
 				8B91B4B922271E2B00807E4D /* AppDelegate.swift in Sources */,
 				8B8E270422398CC10067FA9D /* CreatorCollectionViewCell.swift in Sources */,
+				8B73780F2243DE2600D8A2E2 /* NetworkingClient.swift in Sources */,
 				8B91CE8D22314F1C003E1C00 /* MarvelAPIKeysHandler.swift in Sources */,
 				8B0DE102223C4BCD00FE42EB /* Model.xcdatamodeld in Sources */,
 				8B8E26E22239389D0067FA9D /* ComicCollectionViewController.swift in Sources */,

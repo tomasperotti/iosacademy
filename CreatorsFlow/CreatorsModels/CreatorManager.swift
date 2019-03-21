@@ -11,6 +11,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+// MARK: TOFIX: create CoreData 
 class CreatorManager {
     
     // MARK: - TOFIX: harcoded request
