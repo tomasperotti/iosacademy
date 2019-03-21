@@ -10,6 +10,34 @@ import UIKit
 import UserNotifications
 import CoreData
 
+enum TabNames: String {
+    
+    case Characters
+    case Comics
+    case Creators
+    case Maps
+    case unknown
+    
+    func getIndex() -> Int {
+        
+        switch self {
+            
+        case .Characters :
+            return 0
+        case .Comics :
+            return 1
+        case .Creators :
+            return 2
+        case .Maps :
+            return 3
+        default:
+            return -1
+        }
+    }
+    
+}
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -41,6 +69,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
         
         
+        
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        let message = url.host?.removingPercentEncoding
+        let alertController = UIAlertController(title: "If you wish, you can select a particular tab.", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+        alertController.addAction(okAction)
+        
+        window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        
+        
+        if let scheme = url.scheme, scheme.localizedCaseInsensitiveCompare("com.Superheroes") == .orderedSame, let appSection = url.host, let tabEnum = TabNames(rawValue: appSection) {
+            
+            
+            let index = tabEnum.getIndex()
+            
+            if index != -1 {
+                // User selected Tab exists
+                
+                if let root = self.window?.rootViewController as? TabBarViewController {
+                    root.selectedIndex = index
+                    return true
+                }
+
+            } else {
+                
+                 // User input is not valid
+                
+                let alertController = UIAlertController(title: "Select a valid URL", message: "You have to select a valid URL. Like Characters, Comics, Maps or Creators.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                alertController.addAction(okAction)
+                window?.rootViewController?.present(alertController, animated: true, completion: nil)
+                return false
+               
+            }
+ 
+        }
+        
+        return false
         
     }
 

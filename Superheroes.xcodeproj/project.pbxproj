@@ -294,7 +294,6 @@
 				8B606DE6223BDBDA00AD9048 /* XIBs */,
 				8B8E2702223979070067FA9D /* Models */,
 				8BB2E1D92237EF69007E6C4F /* Storyboards */,
-				8B91B4C122271E2C00807E4D /* LaunchScreen.storyboard */,
 				8B91B4E822271F9F00807E4D /* Controllers */,
 				8B91B4B722271E2B00807E4D /* Superheroes */,
 				8B91B4CC22271E2C00807E4D /* SuperheroesTests */,
@@ -373,6 +372,7 @@
 				8B1117A722384B7800B8BFDE /* CreatorStoryboard.storyboard */,
 				8B11179D2238259000B8BFDE /* ComicStoryboard.storyboard */,
 				8B91B4BC22271E2B00807E4D /* Main.storyboard */,
+				8B91B4C122271E2C00807E4D /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
