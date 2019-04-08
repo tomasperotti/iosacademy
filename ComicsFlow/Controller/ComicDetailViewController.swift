@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class TabComicDetailViewController: UIViewController {
+class ComicDetailViewController: UIViewController {
     
     var comic : Comic!
 

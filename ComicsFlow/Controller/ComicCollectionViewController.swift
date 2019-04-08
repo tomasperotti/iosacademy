@@ -11,13 +11,23 @@ import SDWebImage
 
 class ComicCollectionViewController: UIViewController {
     
-    
+    var comicViewModel = ComicViewModel()
     @IBOutlet weak var comicCollectionView: UICollectionView!
-    var comicList : [Comic] = []
-    var comic : Comic?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        setLayout()
+        initTable()
+        
+    }
+    
+    func initTable() {
+        self.comicViewModel.fetchComics { [weak self] in
+            self?.comicCollectionView.reloadData()
+        }
+    }
+    func setLayout() {
        
         // Setting layout for collection view
         
@@ -28,17 +38,16 @@ class ComicCollectionViewController: UIViewController {
         layout.minimumLineSpacing = 2
         self.comicCollectionView.collectionViewLayout = layout
         
-        getComicsAndDisplay()
-        // Do any additional setup after loading the view.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let destinationView = segue.destination as? TabComicDetailViewController {
+        if let destinationView = segue.destination as? ComicDetailViewController {
             
             if let s = sender as? ComicCollectionViewCell {
                 if let index = comicCollectionView.indexPath(for: s)?.row {
-                    destinationView.comic = comicList[index]
+                    // MARK: -TOFIX: segues
+                    //destinationView.comic = comicList[index]
                 }
             }
             
@@ -46,24 +55,6 @@ class ComicCollectionViewController: UIViewController {
         
     }
     
-    func getComicsAndDisplay() {
-        
-        ComicManager.getComicsFromAPI(completion: { [weak self] (comicList) in
-            
-            guard let uSelf = self else {
-                return
-            }
-            DispatchQueue.main.async {
-                uSelf.comicList = comicList
-                uSelf.comicCollectionView.reloadData()
-            }
-            
-            
-        })
-        
-    }
-    
-
 }
 
 
@@ -71,22 +62,20 @@ class ComicCollectionViewController: UIViewController {
 extension ComicCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return comicList.count
+        return comicViewModel.getComicsCount() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as! ComicCollectionViewCell
-        
-        let newComic = comicList[indexPath.row]
 
-        let image = newComic.thumbnail.path + "." + newComic.thumbnail.ext
+        if let image = comicViewModel.getImage(index: indexPath.row), image != "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg" {
+            cell.comicImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
+        } else {
+            cell.comicImageView.image = UIImage(named: "deadpool")
+        }
         
-        cell.comicImageView.sd_setImage(with:  URL(string: image.replacingOccurrences(of: "http", with: "https")), placeholderImage: nil, options: [], completed: nil)
-          
-            cell.layer.borderWidth = 0.5
-            cell.layer.borderColor = UIColor.gray.cgColor
-
+      
         return cell
     }
     
@@ -108,7 +97,11 @@ extension ComicCollectionViewController : UICollectionViewDataSource, UICollecti
 extension ComicCollectionViewController : CanBeRefreshed {
    
     func refresh() {
-        getComicsAndDisplay()
+        comicViewModel.fetchComics { [weak self] in
+            
+            self?.comicCollectionView.reloadData()
+            
+        }
     }
     
 }
